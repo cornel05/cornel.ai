@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
@@ -58,7 +58,7 @@
   </head>
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
   
@@ -128,8 +128,6 @@
   
   
     
-    
-      
     
     
     <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
@@ -538,20 +536,20 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>   <span class="n">Unnamed</span><span class="p">:</span> <span class="mi">0</span>  <span class="n">carat</span>      <span class="n">cut</span> <span class="n">color</span> <span class="n">clarity</span>  <span class="n">depth</span>  <span class="n">table</span>  <span class="n">price</span>     <span class="n">x</span>     <span class="n">y</span>  \
- <span class="mi">0</span>           <span class="mi">1</span>   <span class="mf">0.23</span>    <span class="n">Ideal</span>     <span class="n">E</span>     <span class="n">SI2</span>   <span class="mf">61.5</span>   <span class="mf">55.0</span>    <span class="mi">326</span>  <span class="mf">3.95</span>  <span class="mf">3.98</span>   
- <span class="mi">1</span>           <span class="mi">2</span>   <span class="mf">0.21</span>  <span class="n">Premium</span>     <span class="n">E</span>     <span class="n">SI1</span>   <span class="mf">59.8</span>   <span class="mf">61.0</span>    <span class="mi">326</span>  <span class="mf">3.89</span>  <span class="mf">3.84</span>   
- <span class="mi">2</span>           <span class="mi">3</span>   <span class="mf">0.23</span>     <span class="n">Good</span>     <span class="n">E</span>     <span class="n">VS1</span>   <span class="mf">56.9</span>   <span class="mf">65.0</span>    <span class="mi">327</span>  <span class="mf">4.05</span>  <span class="mf">4.07</span>   
- <span class="mi">3</span>           <span class="mi">4</span>   <span class="mf">0.29</span>  <span class="n">Premium</span>     <span class="n">I</span>     <span class="n">VS2</span>   <span class="mf">62.4</span>   <span class="mf">58.0</span>    <span class="mi">334</span>  <span class="mf">4.20</span>  <span class="mf">4.23</span>   
- <span class="mi">4</span>           <span class="mi">5</span>   <span class="mf">0.31</span>     <span class="n">Good</span>     <span class="n">J</span>     <span class="n">SI2</span>   <span class="mf">63.3</span>   <span class="mf">58.0</span>    <span class="mi">335</span>  <span class="mf">4.34</span>  <span class="mf">4.35</span>   
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(   Unnamed: 0  carat      cut color clarity  depth  table  price     x     y  \
+ 0           1   0.23    Ideal     E     SI2   61.5   55.0    326  3.95  3.98   
+ 1           2   0.21  Premium     E     SI1   59.8   61.0    326  3.89  3.84   
+ 2           3   0.23     Good     E     VS1   56.9   65.0    327  4.05  4.07   
+ 3           4   0.29  Premium     I     VS2   62.4   58.0    334  4.20  4.23   
+ 4           5   0.31     Good     J     SI2   63.3   58.0    335  4.34  4.35   
  
-       <span class="n">z</span>  
- <span class="mi">0</span>  <span class="mf">2.43</span>  
- <span class="mi">1</span>  <span class="mf">2.31</span>  
- <span class="mi">2</span>  <span class="mf">2.31</span>  
- <span class="mi">3</span>  <span class="mf">2.63</span>  
- <span class="mi">4</span>  <span class="mf">2.75</span>  <span class="p">,</span>
- <span class="p">(</span><span class="mi">53940</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+       z  
+ 0  2.43  
+ 1  2.31  
+ 2  2.31  
+ 3  2.63  
+ 4  2.75  ,
+ (53940, 11))
 </pre></div>
 </div>
 </div>
@@ -582,24 +580,24 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>   <span class="n">carat</span>      <span class="n">cut</span> <span class="n">color</span> <span class="n">clarity</span>  <span class="n">depth</span>  <span class="n">table</span>  <span class="n">price</span>     <span class="n">x</span>     <span class="n">y</span>     <span class="n">z</span>
- <span class="mi">0</span>   <span class="mf">0.23</span>    <span class="n">Ideal</span>     <span class="n">E</span>     <span class="n">SI2</span>   <span class="mf">61.5</span>   <span class="mf">55.0</span>    <span class="mi">326</span>  <span class="mf">3.95</span>  <span class="mf">3.98</span>  <span class="mf">2.43</span>
- <span class="mi">1</span>   <span class="mf">0.21</span>  <span class="n">Premium</span>     <span class="n">E</span>     <span class="n">SI1</span>   <span class="mf">59.8</span>   <span class="mf">61.0</span>    <span class="mi">326</span>  <span class="mf">3.89</span>  <span class="mf">3.84</span>  <span class="mf">2.31</span>
- <span class="mi">2</span>   <span class="mf">0.23</span>     <span class="n">Good</span>     <span class="n">E</span>     <span class="n">VS1</span>   <span class="mf">56.9</span>   <span class="mf">65.0</span>    <span class="mi">327</span>  <span class="mf">4.05</span>  <span class="mf">4.07</span>  <span class="mf">2.31</span>
- <span class="mi">3</span>   <span class="mf">0.29</span>  <span class="n">Premium</span>     <span class="n">I</span>     <span class="n">VS2</span>   <span class="mf">62.4</span>   <span class="mf">58.0</span>    <span class="mi">334</span>  <span class="mf">4.20</span>  <span class="mf">4.23</span>  <span class="mf">2.63</span>
- <span class="mi">4</span>   <span class="mf">0.31</span>     <span class="n">Good</span>     <span class="n">J</span>     <span class="n">SI2</span>   <span class="mf">63.3</span>   <span class="mf">58.0</span>    <span class="mi">335</span>  <span class="mf">4.34</span>  <span class="mf">4.35</span>  <span class="mf">2.75</span><span class="p">,</span>
- <span class="p">(</span><span class="mi">53940</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
- <span class="n">carat</span>      <span class="n">float64</span>
- <span class="n">cut</span>         <span class="nb">object</span>
- <span class="n">color</span>       <span class="nb">object</span>
- <span class="n">clarity</span>     <span class="nb">object</span>
- <span class="n">depth</span>      <span class="n">float64</span>
- <span class="n">table</span>      <span class="n">float64</span>
- <span class="n">price</span>        <span class="n">int64</span>
- <span class="n">x</span>          <span class="n">float64</span>
- <span class="n">y</span>          <span class="n">float64</span>
- <span class="n">z</span>          <span class="n">float64</span>
- <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(   carat      cut color clarity  depth  table  price     x     y     z
+ 0   0.23    Ideal     E     SI2   61.5   55.0    326  3.95  3.98  2.43
+ 1   0.21  Premium     E     SI1   59.8   61.0    326  3.89  3.84  2.31
+ 2   0.23     Good     E     VS1   56.9   65.0    327  4.05  4.07  2.31
+ 3   0.29  Premium     I     VS2   62.4   58.0    334  4.20  4.23  2.63
+ 4   0.31     Good     J     SI2   63.3   58.0    335  4.34  4.35  2.75,
+ (53940, 10),
+ carat      float64
+ cut         object
+ color       object
+ clarity     object
+ depth      float64
+ table      float64
+ price        int64
+ x          float64
+ y          float64
+ z          float64
+ dtype: object)
 </pre></div>
 </div>
 </div>
@@ -790,10 +788,10 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Ideal&#39;</span><span class="p">,</span> <span class="s1">&#39;Premium&#39;</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Very Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Fair&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span>
- <span class="n">array</span><span class="p">([</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span>
- <span class="n">array</span><span class="p">([</span><span class="s1">&#39;SI2&#39;</span><span class="p">,</span> <span class="s1">&#39;SI1&#39;</span><span class="p">,</span> <span class="s1">&#39;VS1&#39;</span><span class="p">,</span> <span class="s1">&#39;VS2&#39;</span><span class="p">,</span> <span class="s1">&#39;VVS2&#39;</span><span class="p">,</span> <span class="s1">&#39;VVS1&#39;</span><span class="p">,</span> <span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="s1">&#39;IF&#39;</span><span class="p">],</span>
-       <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Ideal&#39;, &#39;Premium&#39;, &#39;Good&#39;, &#39;Very Good&#39;, &#39;Fair&#39;], dtype=object),
+ array([&#39;E&#39;, &#39;I&#39;, &#39;J&#39;, &#39;H&#39;, &#39;F&#39;, &#39;G&#39;, &#39;D&#39;], dtype=object),
+ array([&#39;SI2&#39;, &#39;SI1&#39;, &#39;VS1&#39;, &#39;VS2&#39;, &#39;VVS2&#39;, &#39;VVS1&#39;, &#39;I1&#39;, &#39;IF&#39;],
+       dtype=object))
 </pre></div>
 </div>
 </div>
@@ -1359,7 +1357,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">51130</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">51130</span><span class="p">,))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((51130, 9), (51130,))
 </pre></div>
 </div>
 </div>
@@ -1402,7 +1400,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">40904</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">10226</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">40904</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10226</span><span class="p">,))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((40904, 9), (10226, 9), (40904,), (10226,))
 </pre></div>
 </div>
 </div>
@@ -1429,7 +1427,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">40904</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">10226</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">40904</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10226</span><span class="p">,))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((40904, 10), (10226, 10), (40904,), (10226,))
 </pre></div>
 </div>
 </div>
@@ -1490,26 +1488,26 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Epoch</span> <span class="mi">50</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">854690.2804881446</span>
-<span class="n">Epoch</span> <span class="mi">100</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">930888.7918352446</span>
-<span class="n">Epoch</span> <span class="mi">150</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">898086.575709949</span>
-<span class="n">Epoch</span> <span class="mi">200</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">865824.0643924325</span>
-<span class="n">Epoch</span> <span class="mi">250</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">837644.0411158183</span>
-<span class="n">Epoch</span> <span class="mi">300</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">813149.890785892</span>
-<span class="n">Epoch</span> <span class="mi">350</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">791850.0374682825</span>
-<span class="n">Epoch</span> <span class="mi">400</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">773313.9451640927</span>
-<span class="n">Epoch</span> <span class="mi">450</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">757169.9685266428</span>
-<span class="n">Epoch</span> <span class="mi">500</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">743097.4184975234</span>
-<span class="n">Epoch</span> <span class="mi">550</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">730819.5034467353</span>
-<span class="n">Epoch</span> <span class="mi">600</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">720097.2515056593</span>
-<span class="n">Epoch</span> <span class="mi">650</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">710724.2800891658</span>
-<span class="n">Epoch</span> <span class="mi">700</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">702522.2935133729</span>
-<span class="n">Epoch</span> <span class="mi">750</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">695337.2069441539</span>
-<span class="n">Epoch</span> <span class="mi">800</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">689035.8092394451</span>
-<span class="n">Epoch</span> <span class="mi">850</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">683502.8894749393</span>
-<span class="n">Epoch</span> <span class="mi">900</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">678638.7624560278</span>
-<span class="n">Epoch</span> <span class="mi">950</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">674357.1375643822</span>
-<span class="n">Epoch</span> <span class="mi">1000</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">670583.2830677389</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 50/1000 - Loss: 854690.2804881446
+Epoch 100/1000 - Loss: 930888.7918352446
+Epoch 150/1000 - Loss: 898086.575709949
+Epoch 200/1000 - Loss: 865824.0643924325
+Epoch 250/1000 - Loss: 837644.0411158183
+Epoch 300/1000 - Loss: 813149.890785892
+Epoch 350/1000 - Loss: 791850.0374682825
+Epoch 400/1000 - Loss: 773313.9451640927
+Epoch 450/1000 - Loss: 757169.9685266428
+Epoch 500/1000 - Loss: 743097.4184975234
+Epoch 550/1000 - Loss: 730819.5034467353
+Epoch 600/1000 - Loss: 720097.2515056593
+Epoch 650/1000 - Loss: 710724.2800891658
+Epoch 700/1000 - Loss: 702522.2935133729
+Epoch 750/1000 - Loss: 695337.2069441539
+Epoch 800/1000 - Loss: 689035.8092394451
+Epoch 850/1000 - Loss: 683502.8894749393
+Epoch 900/1000 - Loss: 678638.7624560278
+Epoch 950/1000 - Loss: 674357.1375643822
+Epoch 1000/1000 - Loss: 670583.2830677389
 </pre></div>
 </div>
 </div>
@@ -1530,7 +1528,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">MSE</span><span class="p">:</span> <span class="mf">1537577.661748432</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test MSE: 1537577.661748432
 </pre></div>
 </div>
 </div>
@@ -1550,7 +1548,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">MAE</span><span class="p">:</span> <span class="mf">955.1460419805663</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test MAE: 955.1460419805663
 </pre></div>
 </div>
 </div>

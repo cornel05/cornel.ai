@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
@@ -58,7 +58,7 @@
   </head>
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
   
@@ -128,8 +128,6 @@
   
   
     
-    
-      
     
     
     <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
@@ -558,9 +556,9 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Shape</span> <span class="n">of</span> <span class="n">colorful</span> <span class="n">image</span><span class="p">:</span> <span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">650</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">Type</span> <span class="n">of</span> <span class="n">colorful</span> <span class="n">image</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="s1">&#39;&gt;</span>
-<span class="n">Type</span> <span class="n">of</span> <span class="n">each</span> <span class="n">pixel</span> <span class="ow">is</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">numpy</span><span class="o">.</span><span class="n">uint8</span><span class="s1">&#39;&gt;</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of colorful image: (400, 650, 3)
+Type of colorful image: &lt;class &#39;numpy.ndarray&#39;&gt;
+Type of each pixel is: &lt;class &#39;numpy.uint8&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -589,7 +587,7 @@ document.write(`
 </summary>
 <div class="cell_output docutils container">
 <img alt="../../../_images/5ec40863b589a94b7c7ee65a2f5d95e0ed7fe6acc22acf075a709ded4ddb407e.png" src="../../../_images/5ec40863b589a94b7c7ee65a2f5d95e0ed7fe6acc22acf075a709ded4ddb407e.png" />
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Shape</span> <span class="n">of</span> <span class="n">grayscale</span> <span class="n">image</span><span class="p">:</span> <span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">650</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of grayscale image: (400, 650)
 </pre></div>
 </div>
 </div>
@@ -992,7 +990,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1372</span><span class="p">,</span> <span class="mi">2484</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">1372</span><span class="p">,</span> <span class="mi">2484</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1372, 2484, 3) (1372, 2484, 3)
 </pre></div>
 </div>
 </div>
@@ -1018,7 +1016,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1372</span><span class="p">,</span> <span class="mi">2484</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">1372</span><span class="p">,</span> <span class="mi">2484</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1372, 2484, 3) (1372, 2484, 3)
 </pre></div>
 </div>
 </div>

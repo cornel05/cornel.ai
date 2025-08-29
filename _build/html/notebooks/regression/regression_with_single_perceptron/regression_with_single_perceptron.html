@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
@@ -60,7 +60,7 @@
   </head>
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
   
@@ -130,8 +130,6 @@
   
   
     
-    
-      
     
     
     <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
@@ -703,7 +701,7 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Axes</span><span class="p">:</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;TV&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Sales&#39;</span><span class="o">&gt;</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;TV&#39;, ylabel=&#39;Sales&#39;&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/128ce78ff30a41b81706bde154360c62a9e1c43b6f0157ef68bbb423c9ae3513.png" src="../../../_images/128ce78ff30a41b81706bde154360c62a9e1c43b6f0157ef68bbb423c9ae3513.png" />
@@ -797,7 +795,7 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((1, 200), (1, 200))
 </pre></div>
 </div>
 </div>
@@ -816,7 +814,7 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Axes</span><span class="p">:</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;TV&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Sales&#39;</span><span class="o">&gt;</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;TV&#39;, ylabel=&#39;Sales&#39;&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/5841ef73637e957c70978aa39be2ba26eb77d37d916e254c033e6461e656daea.png" src="../../../_images/5841ef73637e957c70978aa39be2ba26eb77d37d916e254c033e6461e656daea.png" />
@@ -851,7 +849,7 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">1</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1
 </pre></div>
 </div>
 </div>
@@ -886,13 +884,13 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">0.01788628</span><span class="p">]]</span> <span class="p">[[</span><span class="mf">0.</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.01788628]] [[0.]]
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<p>Implement <code class="docutils literal notranslate"><span class="pre">forward_propagation()</span></code> following the equation <span class="math notranslate nohighlight">\((3)\)</span> in the section <a class="reference internal" href="#1.2"><span class="xref myst">1.2</span></a>:</p>
+<p>Implement <code class="docutils literal notranslate"><span class="pre">forward_propagation()</span></code> following the equation <span class="math notranslate nohighlight">\((3)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 Z =  w X + b
@@ -930,7 +928,7 @@ Z =  w X + b
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Some</span> <span class="n">element</span> <span class="n">of</span> <span class="n">predicted</span> <span class="n">Y_hat</span> <span class="n">values</span><span class="p">:</span>  <span class="p">[</span> <span class="mf">0.01734705</span> <span class="o">-</span><span class="mf">0.02141661</span> <span class="o">-</span><span class="mf">0.02711838</span>  <span class="mf">0.00093098</span>  <span class="mf">0.00705046</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some element of predicted Y_hat values:  [ 0.01734705 -0.02141661 -0.02711838  0.00093098  0.00705046]
 </pre></div>
 </div>
 </div>
@@ -973,7 +971,7 @@ Z =  w X + b
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cost</span> <span class="o">=</span> <span class="mf">0.48616887080159704</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cost = 0.48616887080159704
 </pre></div>
 </div>
 </div>
@@ -1028,8 +1026,8 @@ Z =  w X + b
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dW</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.76433814</span><span class="p">]]</span>
-<span class="n">db</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1.687539e-16</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dW = [[-0.76433814]]
+db = [[1.687539e-16]]
 </pre></div>
 </div>
 </div>
@@ -1079,8 +1077,8 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="n">updated</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.93509205</span><span class="p">]]</span>
-<span class="n">b</span> <span class="n">updated</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">2.0250468e-16</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>W updated = [[0.93509205]]
+b updated = [[-2.0250468e-16]]
 </pre></div>
 </div>
 </div>
@@ -1145,38 +1143,38 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">0</span><span class="p">:</span> <span class="mf">0.49659504037484803</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">0.20616377720695983</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">2</span><span class="p">:</span> <span class="mf">0.1945465266802443</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">0.1940818366591757</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">4</span><span class="p">:</span> <span class="mf">0.19406324905833294</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">5</span><span class="p">:</span> <span class="mf">0.19406250555429921</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">6</span><span class="p">:</span> <span class="mf">0.19406247581413788</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">7</span><span class="p">:</span> <span class="mf">0.19406247462453144</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">8</span><span class="p">:</span> <span class="mf">0.19406247457694714</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">9</span><span class="p">:</span> <span class="mf">0.1940624745750438</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">10</span><span class="p">:</span> <span class="mf">0.19406247457496764</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">11</span><span class="p">:</span> <span class="mf">0.19406247457496462</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">12</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">13</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">14</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">15</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">16</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">17</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">18</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">19</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">20</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">21</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">22</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">23</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">24</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">25</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">26</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">27</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">28</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">29</span><span class="p">:</span> <span class="mf">0.19406247457496448</span>
-<span class="n">W</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.78222442</span><span class="p">]]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">3.19744231e-16</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cost after iteration 0: 0.49659504037484803
+Cost after iteration 1: 0.20616377720695983
+Cost after iteration 2: 0.1945465266802443
+Cost after iteration 3: 0.1940818366591757
+Cost after iteration 4: 0.19406324905833294
+Cost after iteration 5: 0.19406250555429921
+Cost after iteration 6: 0.19406247581413788
+Cost after iteration 7: 0.19406247462453144
+Cost after iteration 8: 0.19406247457694714
+Cost after iteration 9: 0.1940624745750438
+Cost after iteration 10: 0.19406247457496764
+Cost after iteration 11: 0.19406247457496462
+Cost after iteration 12: 0.19406247457496448
+Cost after iteration 13: 0.19406247457496448
+Cost after iteration 14: 0.19406247457496448
+Cost after iteration 15: 0.19406247457496448
+Cost after iteration 16: 0.19406247457496448
+Cost after iteration 17: 0.19406247457496448
+Cost after iteration 18: 0.19406247457496448
+Cost after iteration 19: 0.19406247457496448
+Cost after iteration 20: 0.19406247457496448
+Cost after iteration 21: 0.19406247457496448
+Cost after iteration 22: 0.19406247457496448
+Cost after iteration 23: 0.19406247457496448
+Cost after iteration 24: 0.19406247457496448
+Cost after iteration 25: 0.19406247457496448
+Cost after iteration 26: 0.19406247457496448
+Cost after iteration 27: 0.19406247457496448
+Cost after iteration 28: 0.19406247457496448
+Cost after iteration 29: 0.19406247457496448
+W = [[0.78222442]]
+b = [[-3.19744231e-16]]
 </pre></div>
 </div>
 </div>
@@ -1239,10 +1237,10 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TV</span> <span class="n">marketing</span> <span class="n">expenses</span><span class="p">:</span>
-<span class="p">[</span><span class="mf">230.1</span>  <span class="mf">44.2</span>   <span class="mf">8.6</span><span class="p">]</span>
-<span class="n">Predictions</span> <span class="n">of</span> <span class="n">sales</span><span class="p">:</span>
-<span class="p">[</span><span class="mf">17.97077451</span>  <span class="mf">9.13371306</span>  <span class="mf">7.44140866</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TV marketing expenses:
+[230.1  44.2   8.6]
+Predictions of sales:
+[17.97077451  9.13371306  7.44140866]
 </pre></div>
 </div>
 </div>
@@ -1306,7 +1304,7 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1460</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1460</span><span class="p">,))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((1460, 2), (1460,))
 </pre></div>
 </div>
 </div>
@@ -1406,18 +1404,18 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
   </tbody>
 </table>
 <p>1460 rows × 2 columns</p>
-</div></div><div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>       <span class="mi">208500</span>
-<span class="mi">1</span>       <span class="mi">181500</span>
-<span class="mi">2</span>       <span class="mi">223500</span>
-<span class="mi">3</span>       <span class="mi">140000</span>
-<span class="mi">4</span>       <span class="mi">250000</span>
-         <span class="o">...</span>  
-<span class="mi">1455</span>    <span class="mi">175000</span>
-<span class="mi">1456</span>    <span class="mi">210000</span>
-<span class="mi">1457</span>    <span class="mi">266500</span>
-<span class="mi">1458</span>    <span class="mi">142125</span>
-<span class="mi">1459</span>    <span class="mi">147500</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">SalePrice</span><span class="p">,</span> <span class="n">Length</span><span class="p">:</span> <span class="mi">1460</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       208500
+1       181500
+2       223500
+3       140000
+4       250000
+         ...  
+1455    175000
+1456    210000
+1457    266500
+1458    142125
+1459    147500
+Name: SalePrice, Length: 1460, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1437,7 +1435,7 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1460</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((1460, 2), (1, 200))
 </pre></div>
 </div>
 </div>
@@ -1457,7 +1455,7 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1460</span><span class="p">))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((1, 200), (1, 1460))
 </pre></div>
 </div>
 </div>
@@ -1475,8 +1473,8 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span> <span class="mf">0.37033344</span> <span class="o">-</span><span class="mf">0.48251191</span>  <span class="mf">0.51501256</span>  <span class="mf">0.38365915</span>  <span class="mf">1.2993257</span> <span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.65147924</span> <span class="o">-</span><span class="mf">0.07183611</span>  <span class="mf">0.65147924</span>  <span class="mf">0.65147924</span>  <span class="mf">1.3747946</span> <span class="p">]]</span> <span class="p">[</span> <span class="mf">0.34727322</span>  <span class="mf">0.00728832</span>  <span class="mf">0.53615372</span> <span class="o">-</span><span class="mf">0.51528106</span>  <span class="mf">0.8698426</span> <span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.37033344 -0.48251191  0.51501256  0.38365915  1.2993257 ]
+ [ 0.65147924 -0.07183611  0.65147924  0.65147924  1.3747946 ]] [ 0.34727322  0.00728832  0.53615372 -0.51528106  0.8698426 ]
 </pre></div>
 </div>
 </div>
@@ -1498,107 +1496,107 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">0</span><span class="p">:</span> <span class="mf">0.5142195119760039</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">0.44862664805802294</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">2</span><span class="p">:</span> <span class="mf">0.3962236237408893</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">0.35322650244442194</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">4</span><span class="p">:</span> <span class="mf">0.3176388968906906</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">5</span><span class="p">:</span> <span class="mf">0.28810227675703015</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">6</span><span class="p">:</span> <span class="mf">0.2635663230551014</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">7</span><span class="p">:</span> <span class="mf">0.2431787775092655</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">8</span><span class="p">:</span> <span class="mf">0.22623677631465744</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">9</span><span class="p">:</span> <span class="mf">0.21215762854913936</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">10</span><span class="p">:</span> <span class="mf">0.20045746930524147</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">11</span><span class="p">:</span> <span class="mf">0.19073428857122826</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">12</span><span class="p">:</span> <span class="mf">0.1826540289332285</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">13</span><span class="p">:</span> <span class="mf">0.1759390850066516</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">14</span><span class="p">:</span> <span class="mf">0.170358759895168</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">15</span><span class="p">:</span> <span class="mf">0.1657213378223942</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">16</span><span class="p">:</span> <span class="mf">0.16186749718900195</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">17</span><span class="p">:</span> <span class="mf">0.15866483686740238</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">18</span><span class="p">:</span> <span class="mf">0.1560033274486568</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">19</span><span class="p">:</span> <span class="mf">0.1537915311054225</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">20</span><span class="p">:</span> <span class="mf">0.1519534601860057</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">21</span><span class="p">:</span> <span class="mf">0.15042596661037508</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">22</span><span class="p">:</span> <span class="mf">0.14915657237810437</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">23</span><span class="p">:</span> <span class="mf">0.14810166665369826</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">24</span><span class="p">:</span> <span class="mf">0.1472250074889603</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">25</span><span class="p">:</span> <span class="mf">0.14649647670811547</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">26</span><span class="p">:</span> <span class="mf">0.14589104517897944</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">27</span><span class="p">:</span> <span class="mf">0.14538791292141448</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">28</span><span class="p">:</span> <span class="mf">0.14496979451095832</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">29</span><span class="p">:</span> <span class="mf">0.1446223252272187</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">30</span><span class="p">:</span> <span class="mf">0.14433356754488944</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">31</span><span class="p">:</span> <span class="mf">0.1440936010125767</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">32</span><span class="p">:</span> <span class="mf">0.14389418142946578</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">33</span><span class="p">:</span> <span class="mf">0.1437284576106279</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">34</span><span class="p">:</span> <span class="mf">0.1435907360102627</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">35</span><span class="p">:</span> <span class="mf">0.14347628511635882</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">36</span><span class="p">:</span> <span class="mf">0.1433811728966296</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">37</span><span class="p">:</span> <span class="mf">0.14330213171107611</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">38</span><span class="p">:</span> <span class="mf">0.1432364460501643</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">39</span><span class="p">:</span> <span class="mf">0.14318185924179086</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">40</span><span class="p">:</span> <span class="mf">0.1431364959218967</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">41</span><span class="p">:</span> <span class="mf">0.14309879760515798</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">42</span><span class="p">:</span> <span class="mf">0.14306746914224452</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">43</span><span class="p">:</span> <span class="mf">0.14304143422415205</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">44</span><span class="p">:</span> <span class="mf">0.1430197984049305</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">45</span><span class="p">:</span> <span class="mf">0.1430018183724325</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">46</span><span class="p">:</span> <span class="mf">0.1429868764113577</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">47</span><span class="p">:</span> <span class="mf">0.14297445918125612</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">48</span><span class="p">:</span> <span class="mf">0.14296414008039493</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">49</span><span class="p">:</span> <span class="mf">0.142955564589588</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">50</span><span class="p">:</span> <span class="mf">0.1429484380924669</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">51</span><span class="p">:</span> <span class="mf">0.14294251575375058</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">52</span><span class="p">:</span> <span class="mf">0.14293759410777576</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">53</span><span class="p">:</span> <span class="mf">0.14293350406830627</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">54</span><span class="p">:</span> <span class="mf">0.1429301051194693</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">55</span><span class="p">:</span> <span class="mf">0.1429272804882445</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">56</span><span class="p">:</span> <span class="mf">0.1429249331326534</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">57</span><span class="p">:</span> <span class="mf">0.14292298240782159</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">58</span><span class="p">:</span> <span class="mf">0.14292136129537322</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">59</span><span class="p">:</span> <span class="mf">0.14292001410097277</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">60</span><span class="p">:</span> <span class="mf">0.14291889454091114</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">61</span><span class="p">:</span> <span class="mf">0.14291796415199975</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">62</span><span class="p">:</span> <span class="mf">0.14291719097014374</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">63</span><span class="p">:</span> <span class="mf">0.14291654843219517</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">64</span><span class="p">:</span> <span class="mf">0.14291601446335958</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">65</span><span class="p">:</span> <span class="mf">0.14291557071880256</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">66</span><span class="p">:</span> <span class="mf">0.14291520195340132</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">67</span><span class="p">:</span> <span class="mf">0.1429148954979891</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">68</span><span class="p">:</span> <span class="mf">0.1429146408240979</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">69</span><span class="p">:</span> <span class="mf">0.1429144291822463</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">70</span><span class="p">:</span> <span class="mf">0.1429142533013457</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">71</span><span class="p">:</span> <span class="mf">0.14291410713889743</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">72</span><span class="p">:</span> <span class="mf">0.14291398567339883</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">73</span><span class="p">:</span> <span class="mf">0.14291388473182634</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">74</span><span class="p">:</span> <span class="mf">0.14291380084626906</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">75</span><span class="p">:</span> <span class="mf">0.14291373113478598</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">76</span><span class="p">:</span> <span class="mf">0.1429136732023953</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">77</span><span class="p">:</span> <span class="mf">0.14291362505879346</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">78</span><span class="p">:</span> <span class="mf">0.14291358504997667</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">79</span><span class="p">:</span> <span class="mf">0.14291355180141707</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">80</span><span class="p">:</span> <span class="mf">0.1429135241708394</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">81</span><span class="p">:</span> <span class="mf">0.14291350120897797</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">82</span><span class="p">:</span> <span class="mf">0.1429134821269635</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">83</span><span class="p">:</span> <span class="mf">0.1429134662692215</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">84</span><span class="p">:</span> <span class="mf">0.14291345309094916</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">85</span><span class="p">:</span> <span class="mf">0.14291344213939877</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">86</span><span class="p">:</span> <span class="mf">0.14291343303832293</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">87</span><span class="p">:</span> <span class="mf">0.14291342547504843</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">88</span><span class="p">:</span> <span class="mf">0.14291341918973427</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">89</span><span class="p">:</span> <span class="mf">0.1429134139664445</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">90</span><span class="p">:</span> <span class="mf">0.14291340962572974</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">91</span><span class="p">:</span> <span class="mf">0.142913406018462</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">92</span><span class="p">:</span> <span class="mf">0.14291340302071137</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">93</span><span class="p">:</span> <span class="mf">0.14291340052948823</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">94</span><span class="p">:</span> <span class="mf">0.142913398459205</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">95</span><span class="p">:</span> <span class="mf">0.14291339673873585</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">96</span><span class="p">:</span> <span class="mf">0.14291339530897298</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">97</span><span class="p">:</span> <span class="mf">0.14291339412079596</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">98</span><span class="p">:</span> <span class="mf">0.14291339313338425</span>
-<span class="n">Cost</span> <span class="n">after</span> <span class="n">iteration</span> <span class="mi">99</span><span class="p">:</span> <span class="mf">0.1429133923128147</span>
-<span class="n">W</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.3694604</span>  <span class="mf">0.57181575</span><span class="p">]]</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span> <span class="p">[[</span><span class="mf">1.21181604e-16</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cost after iteration 0: 0.5142195119760039
+Cost after iteration 1: 0.44862664805802294
+Cost after iteration 2: 0.3962236237408893
+Cost after iteration 3: 0.35322650244442194
+Cost after iteration 4: 0.3176388968906906
+Cost after iteration 5: 0.28810227675703015
+Cost after iteration 6: 0.2635663230551014
+Cost after iteration 7: 0.2431787775092655
+Cost after iteration 8: 0.22623677631465744
+Cost after iteration 9: 0.21215762854913936
+Cost after iteration 10: 0.20045746930524147
+Cost after iteration 11: 0.19073428857122826
+Cost after iteration 12: 0.1826540289332285
+Cost after iteration 13: 0.1759390850066516
+Cost after iteration 14: 0.170358759895168
+Cost after iteration 15: 0.1657213378223942
+Cost after iteration 16: 0.16186749718900195
+Cost after iteration 17: 0.15866483686740238
+Cost after iteration 18: 0.1560033274486568
+Cost after iteration 19: 0.1537915311054225
+Cost after iteration 20: 0.1519534601860057
+Cost after iteration 21: 0.15042596661037508
+Cost after iteration 22: 0.14915657237810437
+Cost after iteration 23: 0.14810166665369826
+Cost after iteration 24: 0.1472250074889603
+Cost after iteration 25: 0.14649647670811547
+Cost after iteration 26: 0.14589104517897944
+Cost after iteration 27: 0.14538791292141448
+Cost after iteration 28: 0.14496979451095832
+Cost after iteration 29: 0.1446223252272187
+Cost after iteration 30: 0.14433356754488944
+Cost after iteration 31: 0.1440936010125767
+Cost after iteration 32: 0.14389418142946578
+Cost after iteration 33: 0.1437284576106279
+Cost after iteration 34: 0.1435907360102627
+Cost after iteration 35: 0.14347628511635882
+Cost after iteration 36: 0.1433811728966296
+Cost after iteration 37: 0.14330213171107611
+Cost after iteration 38: 0.1432364460501643
+Cost after iteration 39: 0.14318185924179086
+Cost after iteration 40: 0.1431364959218967
+Cost after iteration 41: 0.14309879760515798
+Cost after iteration 42: 0.14306746914224452
+Cost after iteration 43: 0.14304143422415205
+Cost after iteration 44: 0.1430197984049305
+Cost after iteration 45: 0.1430018183724325
+Cost after iteration 46: 0.1429868764113577
+Cost after iteration 47: 0.14297445918125612
+Cost after iteration 48: 0.14296414008039493
+Cost after iteration 49: 0.142955564589588
+Cost after iteration 50: 0.1429484380924669
+Cost after iteration 51: 0.14294251575375058
+Cost after iteration 52: 0.14293759410777576
+Cost after iteration 53: 0.14293350406830627
+Cost after iteration 54: 0.1429301051194693
+Cost after iteration 55: 0.1429272804882445
+Cost after iteration 56: 0.1429249331326534
+Cost after iteration 57: 0.14292298240782159
+Cost after iteration 58: 0.14292136129537322
+Cost after iteration 59: 0.14292001410097277
+Cost after iteration 60: 0.14291889454091114
+Cost after iteration 61: 0.14291796415199975
+Cost after iteration 62: 0.14291719097014374
+Cost after iteration 63: 0.14291654843219517
+Cost after iteration 64: 0.14291601446335958
+Cost after iteration 65: 0.14291557071880256
+Cost after iteration 66: 0.14291520195340132
+Cost after iteration 67: 0.1429148954979891
+Cost after iteration 68: 0.1429146408240979
+Cost after iteration 69: 0.1429144291822463
+Cost after iteration 70: 0.1429142533013457
+Cost after iteration 71: 0.14291410713889743
+Cost after iteration 72: 0.14291398567339883
+Cost after iteration 73: 0.14291388473182634
+Cost after iteration 74: 0.14291380084626906
+Cost after iteration 75: 0.14291373113478598
+Cost after iteration 76: 0.1429136732023953
+Cost after iteration 77: 0.14291362505879346
+Cost after iteration 78: 0.14291358504997667
+Cost after iteration 79: 0.14291355180141707
+Cost after iteration 80: 0.1429135241708394
+Cost after iteration 81: 0.14291350120897797
+Cost after iteration 82: 0.1429134821269635
+Cost after iteration 83: 0.1429134662692215
+Cost after iteration 84: 0.14291345309094916
+Cost after iteration 85: 0.14291344213939877
+Cost after iteration 86: 0.14291343303832293
+Cost after iteration 87: 0.14291342547504843
+Cost after iteration 88: 0.14291341918973427
+Cost after iteration 89: 0.1429134139664445
+Cost after iteration 90: 0.14291340962572974
+Cost after iteration 91: 0.142913406018462
+Cost after iteration 92: 0.14291340302071137
+Cost after iteration 93: 0.14291340052948823
+Cost after iteration 94: 0.142913398459205
+Cost after iteration 95: 0.14291339673873585
+Cost after iteration 96: 0.14291339530897298
+Cost after iteration 97: 0.14291339412079596
+Cost after iteration 98: 0.14291339313338425
+Cost after iteration 99: 0.1429133923128147
+W: [[0.3694604  0.57181575]] and b: [[1.21181604e-16]]
 </pre></div>
 </div>
 </div>
@@ -1621,12 +1619,12 @@ b = b - \alpha \frac{\partial \mathcal{L} }{ \partial b }
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ground</span> <span class="n">living</span> <span class="n">area</span><span class="p">,</span> <span class="n">square</span> <span class="n">feet</span><span class="p">:</span>
-<span class="p">[</span><span class="mi">1710</span> <span class="mi">1200</span> <span class="mi">2200</span><span class="p">]</span>
-<span class="n">Rates</span> <span class="n">of</span> <span class="n">the</span> <span class="n">overall</span> <span class="n">quality</span> <span class="n">of</span> <span class="n">material</span> <span class="ow">and</span> <span class="n">finish</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span>
-<span class="p">[</span><span class="mi">7</span> <span class="mi">6</span> <span class="mi">8</span><span class="p">]</span>
-<span class="n">Predictions</span> <span class="n">of</span> <span class="n">sales</span> <span class="n">price</span><span class="p">,</span> <span class="err">$</span><span class="p">:</span>
-<span class="p">[</span><span class="mf">221371.</span> <span class="mf">160039.</span> <span class="mf">281587.</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ground living area, square feet:
+[1710 1200 2200]
+Rates of the overall quality of material and finish, 1-10:
+[7 6 8]
+Predictions of sales price, $:
+[221371. 160039. 281587.]
 </pre></div>
 </div>
 </div>

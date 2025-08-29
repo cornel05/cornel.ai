@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
@@ -58,7 +58,7 @@
   </head>
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
   
@@ -128,8 +128,6 @@
   
   
     
-    
-      
     
     
     <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
@@ -525,7 +523,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">50</span> <span class="mi">9</span> <span class="mi">0</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50 9 0
 </pre></div>
 </div>
 </div>
@@ -548,7 +546,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="mi">0</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 0
 </pre></div>
 </div>
 </div>
@@ -585,14 +583,14 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_1d</span><span class="p">:</span>  <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">list_2d</span><span class="p">:</span>  <span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]]</span>
-<span class="n">list_3d</span><span class="p">:</span>  <span class="p">[[[</span> <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span><span class="p">]</span>
-  <span class="p">[</span> <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list_1d:  [1 2 3 4 5]
+list_2d:  [[1 2 3]
+ [4 5 6]]
+list_3d:  [[[ 1  2  3]
+  [ 4  5  6]]
 
- <span class="p">[[</span> <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span><span class="p">]</span>
-  <span class="p">[</span><span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span><span class="p">]]]</span>
+ [[ 7  8  9]
+  [10 11 12]]]
 </pre></div>
 </div>
 </div>
@@ -610,7 +608,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(dtype(&#39;int64&#39;), (2, 2, 3), 3)
 </pre></div>
 </div>
 </div>
@@ -637,8 +635,8 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
- <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0. 0.]
+ [0. 0. 0.]]
 </pre></div>
 </div>
 </div>
@@ -662,8 +660,8 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">1.</span> <span class="mf">1.</span> <span class="mf">1.</span><span class="p">]</span>
- <span class="p">[</span><span class="mf">1.</span> <span class="mf">1.</span> <span class="mf">1.</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 1. 1.]
+ [1. 1. 1.]]
 </pre></div>
 </div>
 </div>
@@ -687,8 +685,8 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">9</span> <span class="mi">9</span> <span class="mi">9</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">9</span> <span class="mi">9</span> <span class="mi">9</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[9 9 9]
+ [9 9 9]]
 </pre></div>
 </div>
 </div>
@@ -712,7 +710,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4]
 </pre></div>
 </div>
 </div>
@@ -736,9 +734,9 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">1.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
- <span class="p">[</span><span class="mf">0.</span> <span class="mf">1.</span> <span class="mf">0.</span><span class="p">]</span>
- <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">1.</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
 </pre></div>
 </div>
 </div>
@@ -763,8 +761,8 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">0.3511155</span>  <span class="mf">0.15105555</span> <span class="mf">0.04231165</span><span class="p">]</span>
- <span class="p">[</span><span class="mf">0.38675743</span> <span class="mf">0.85587757</span> <span class="mf">0.31778496</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.3511155  0.15105555 0.04231165]
+ [0.38675743 0.85587757 0.31778496]]
 </pre></div>
 </div>
 </div>
@@ -793,7 +791,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">3</span> <span class="mi">5</span> <span class="mi">8</span> <span class="mi">8</span> <span class="mi">3</span> <span class="mi">6</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3 5 8 8 3 6]
 </pre></div>
 </div>
 </div>
@@ -819,7 +817,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4 5 6]
 </pre></div>
 </div>
 </div>
@@ -846,12 +844,12 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5, 1) [[1]
+ [2]
+ [3]
+ [4]
+ [5]]
+(1, 5) [[1 2 3 4 5]]
 </pre></div>
 </div>
 </div>
@@ -881,7 +879,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mf">3.14159265</span> <span class="mf">12.56637061</span> <span class="mf">28.27433388</span> <span class="mf">50.26548246</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 3.14159265 12.56637061 28.27433388 50.26548246]
 </pre></div>
 </div>
 </div>
@@ -906,7 +904,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 0 0]
 </pre></div>
 </div>
 </div>

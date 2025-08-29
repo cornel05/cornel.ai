@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
@@ -58,7 +58,7 @@
   </head>
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
   
@@ -128,8 +128,6 @@
   
   
     
-    
-      
     
     
     <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
@@ -529,7 +527,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">800</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((800, 13), 2)
 </pre></div>
 </div>
 </div>
@@ -550,9 +548,9 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Type 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Type 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="s1">&#39;HP&#39;</span><span class="p">,</span> <span class="s1">&#39;Attack&#39;</span><span class="p">,</span> <span class="s1">&#39;Defense&#39;</span><span class="p">,</span>
-       <span class="s1">&#39;Sp. Atk&#39;</span><span class="p">,</span> <span class="s1">&#39;Sp. Def&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed&#39;</span><span class="p">,</span> <span class="s1">&#39;Generation&#39;</span><span class="p">,</span> <span class="s1">&#39;Legendary&#39;</span><span class="p">],</span>
-      <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;#&#39;, &#39;Name&#39;, &#39;Type 1&#39;, &#39;Type 2&#39;, &#39;Total&#39;, &#39;HP&#39;, &#39;Attack&#39;, &#39;Defense&#39;,
+       &#39;Sp. Atk&#39;, &#39;Sp. Def&#39;, &#39;Speed&#39;, &#39;Generation&#39;, &#39;Legendary&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -573,16 +571,16 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>   <span class="c1">#       Name Type 1  Type 2  Total  HP  Attack  Defense  Sp. Atk  Sp. Def  \</span>
- <span class="mi">0</span>  <span class="mi">1</span>  <span class="n">Bulbasaur</span>  <span class="n">Grass</span>  <span class="n">Poison</span>    <span class="mi">318</span>  <span class="mi">45</span>      <span class="mi">49</span>       <span class="mi">49</span>       <span class="mi">65</span>       <span class="mi">65</span>   
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(   #       Name Type 1  Type 2  Total  HP  Attack  Defense  Sp. Atk  Sp. Def  \
+ 0  1  Bulbasaur  Grass  Poison    318  45      49       49       65       65   
  
-    <span class="n">Speed</span>  <span class="n">Generation</span>  <span class="n">Legendary</span>  
- <span class="mi">0</span>     <span class="mi">45</span>           <span class="mi">1</span>      <span class="kc">False</span>  <span class="p">,</span>
-        <span class="c1">#       Name Type 1 Type 2  Total  HP  Attack  Defense  Sp. Atk  \</span>
- <span class="mi">799</span>  <span class="mi">721</span>  <span class="n">Volcanion</span>   <span class="n">Fire</span>  <span class="n">Water</span>    <span class="mi">600</span>  <span class="mi">80</span>     <span class="mi">110</span>      <span class="mi">120</span>      <span class="mi">130</span>   
+    Speed  Generation  Legendary  
+ 0     45           1      False  ,
+        #       Name Type 1 Type 2  Total  HP  Attack  Defense  Sp. Atk  \
+ 799  721  Volcanion   Fire  Water    600  80     110      120      130   
  
-      <span class="n">Sp</span><span class="o">.</span> <span class="n">Def</span>  <span class="n">Speed</span>  <span class="n">Generation</span>  <span class="n">Legendary</span>  
- <span class="mi">799</span>       <span class="mi">90</span>     <span class="mi">70</span>           <span class="mi">6</span>       <span class="kc">True</span>  <span class="p">)</span>
+      Sp. Def  Speed  Generation  Legendary  
+ 799       90     70           6       True  )
 </pre></div>
 </div>
 </div>
@@ -750,12 +748,12 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span>                    <span class="n">Name</span>  <span class="n">HP</span>  <span class="n">Legendary</span>
-<span class="mi">0</span>              <span class="n">Bulbasaur</span>  <span class="mi">45</span>      <span class="kc">False</span>
-<span class="mi">1</span>                <span class="n">Ivysaur</span>  <span class="mi">60</span>      <span class="kc">False</span>
-<span class="mi">2</span>               <span class="n">Venusaur</span>  <span class="mi">80</span>      <span class="kc">False</span>
-<span class="mi">3</span>  <span class="n">VenusaurMega</span> <span class="n">Venusaur</span>  <span class="mi">80</span>      <span class="kc">False</span>
-<span class="mi">4</span>             <span class="n">Charmander</span>  <span class="mi">39</span>      <span class="kc">False</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Name  HP  Legendary
+0              Bulbasaur  45      False
+1                Ivysaur  60      False
+2               Venusaur  80      False
+3  VenusaurMega Venusaur  80      False
+4             Charmander  39      False
 </pre></div>
 </div>
 </div>
@@ -778,20 +776,20 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#                     1</span>
-<span class="n">Name</span>          <span class="n">Bulbasaur</span>
-<span class="n">Type</span> <span class="mi">1</span>            <span class="n">Grass</span>
-<span class="n">Type</span> <span class="mi">2</span>           <span class="n">Poison</span>
-<span class="n">Total</span>               <span class="mi">318</span>
-<span class="n">HP</span>                   <span class="mi">45</span>
-<span class="n">Attack</span>               <span class="mi">49</span>
-<span class="n">Defense</span>              <span class="mi">49</span>
-<span class="n">Sp</span><span class="o">.</span> <span class="n">Atk</span>              <span class="mi">65</span>
-<span class="n">Sp</span><span class="o">.</span> <span class="n">Def</span>              <span class="mi">65</span>
-<span class="n">Speed</span>                <span class="mi">45</span>
-<span class="n">Generation</span>            <span class="mi">1</span>
-<span class="n">Legendary</span>         <span class="kc">False</span>
-<span class="n">Name</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#                     1
+Name          Bulbasaur
+Type 1            Grass
+Type 2           Poison
+Total               318
+HP                   45
+Attack               49
+Defense              49
+Sp. Atk              65
+Sp. Def              65
+Speed                45
+Generation            1
+Legendary         False
+Name: 0, dtype: object
 </pre></div>
 </div>
 </div>
@@ -814,10 +812,10 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="n">Bulbasaur</span>
-<span class="mi">1</span>      <span class="n">Ivysaur</span>
-<span class="mi">2</span>     <span class="n">Venusaur</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Name</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    Bulbasaur
+1      Ivysaur
+2     Venusaur
+Name: Name, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1246,20 +1244,20 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#                                 3</span>
-<span class="n">Name</span>          <span class="n">VenusaurMega</span> <span class="n">Venusaur</span>
-<span class="n">Type</span> <span class="mi">1</span>                        <span class="n">Grass</span>
-<span class="n">Type</span> <span class="mi">2</span>                       <span class="n">Poison</span>
-<span class="n">HP</span>                               <span class="mi">80</span>
-<span class="n">Attack</span>                          <span class="mi">100</span>
-<span class="n">Defense</span>                         <span class="mi">123</span>
-<span class="n">Sp</span><span class="o">.</span> <span class="n">Atk</span>                         <span class="mi">122</span>
-<span class="n">Sp</span><span class="o">.</span> <span class="n">Def</span>                         <span class="mi">120</span>
-<span class="n">Speed</span>                            <span class="mi">80</span>
-<span class="n">Generation</span>                        <span class="mi">1</span>
-<span class="n">Legendary</span>                     <span class="kc">False</span>
-<span class="n">Total</span>                           <span class="mi">625</span>
-<span class="n">Name</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#                                 3
+Name          VenusaurMega Venusaur
+Type 1                        Grass
+Type 2                       Poison
+HP                               80
+Attack                          100
+Defense                         123
+Sp. Atk                         122
+Sp. Def                         120
+Speed                            80
+Generation                        1
+Legendary                     False
+Total                           625
+Name: 3, dtype: object
 </pre></div>
 </div>
 </div>
@@ -3811,9 +3809,9 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Type 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Type 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="s1">&#39;HP&#39;</span><span class="p">,</span> <span class="s1">&#39;Attack&#39;</span><span class="p">,</span> <span class="s1">&#39;Defense&#39;</span><span class="p">,</span>
-       <span class="s1">&#39;Sp. Atk&#39;</span><span class="p">,</span> <span class="s1">&#39;Sp. Def&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed&#39;</span><span class="p">,</span> <span class="s1">&#39;Generation&#39;</span><span class="p">,</span> <span class="s1">&#39;Legendary&#39;</span><span class="p">],</span>
-      <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;#&#39;, &#39;Name&#39;, &#39;Type 1&#39;, &#39;Type 2&#39;, &#39;Total&#39;, &#39;HP&#39;, &#39;Attack&#39;, &#39;Defense&#39;,
+       &#39;Sp. Atk&#39;, &#39;Sp. Def&#39;, &#39;Speed&#39;, &#39;Generation&#39;, &#39;Legendary&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -3984,20 +3982,20 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#                    45</span>
-<span class="n">Name</span>          <span class="n">Vileplume</span>
-<span class="n">Type</span> <span class="mi">1</span>            <span class="n">Grass</span>
-<span class="n">Type</span> <span class="mi">2</span>           <span class="n">Poison</span>
-<span class="n">Total</span>               <span class="mi">490</span>
-<span class="n">HP</span>                   <span class="mi">75</span>
-<span class="n">Attack</span>               <span class="mi">80</span>
-<span class="n">Defense</span>              <span class="mi">85</span>
-<span class="n">Sp</span><span class="o">.</span> <span class="n">Atk</span>             <span class="mi">110</span>
-<span class="n">Sp</span><span class="o">.</span> <span class="n">Def</span>              <span class="mi">90</span>
-<span class="n">Speed</span>                <span class="mi">50</span>
-<span class="n">Generation</span>            <span class="mi">1</span>
-<span class="n">Legendary</span>         <span class="kc">False</span>
-<span class="n">Name</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#                    45
+Name          Vileplume
+Type 1            Grass
+Type 2           Poison
+Total               490
+HP                   75
+Attack               80
+Defense              85
+Sp. Atk             110
+Sp. Def              90
+Speed                50
+Generation            1
+Legendary         False
+Name: 50, dtype: object
 </pre></div>
 </div>
 </div>
@@ -4881,7 +4879,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">92.73846153846154</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(92.73846153846154)
 </pre></div>
 </div>
 </div>
@@ -5278,7 +5276,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="mi">230</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(230)
 </pre></div>
 </div>
 </div>
@@ -5302,7 +5300,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="n">speed</span><span class="p">:</span>  <span class="mf">68.2775</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean speed:  68.2775
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -5497,26 +5495,26 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span> <span class="mi">1</span>
-<span class="n">Bug</span>          <span class="mi">69</span>
-<span class="n">Dark</span>         <span class="mi">31</span>
-<span class="n">Dragon</span>       <span class="mi">32</span>
-<span class="n">Electric</span>     <span class="mi">44</span>
-<span class="n">Fairy</span>        <span class="mi">17</span>
-<span class="n">Fighting</span>     <span class="mi">27</span>
-<span class="n">Fire</span>         <span class="mi">52</span>
-<span class="n">Flying</span>        <span class="mi">4</span>
-<span class="n">Ghost</span>        <span class="mi">32</span>
-<span class="n">Grass</span>        <span class="mi">70</span>
-<span class="n">Ground</span>       <span class="mi">32</span>
-<span class="n">Ice</span>          <span class="mi">24</span>
-<span class="n">Normal</span>       <span class="mi">98</span>
-<span class="n">Poison</span>       <span class="mi">28</span>
-<span class="n">Psychic</span>      <span class="mi">57</span>
-<span class="n">Rock</span>         <span class="mi">44</span>
-<span class="n">Steel</span>        <span class="mi">27</span>
-<span class="n">Water</span>       <span class="mi">112</span>
-<span class="n">Name</span><span class="p">:</span> <span class="c1">#, dtype: int64</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type 1
+Bug          69
+Dark         31
+Dragon       32
+Electric     44
+Fairy        17
+Fighting     27
+Fire         52
+Flying        4
+Ghost        32
+Grass        70
+Ground       32
+Ice          24
+Normal       98
+Poison       28
+Psychic      57
+Rock         44
+Steel        27
+Water       112
+Name: #, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -5941,26 +5939,26 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span> <span class="mi">1</span>
-<span class="n">Bug</span>          <span class="mf">70.971014</span>
-<span class="n">Dark</span>         <span class="mf">88.387097</span>
-<span class="n">Dragon</span>      <span class="mf">112.125000</span>
-<span class="n">Electric</span>     <span class="mf">69.090909</span>
-<span class="n">Fairy</span>        <span class="mf">61.529412</span>
-<span class="n">Fighting</span>     <span class="mf">96.777778</span>
-<span class="n">Fire</span>         <span class="mf">84.769231</span>
-<span class="n">Flying</span>       <span class="mf">78.750000</span>
-<span class="n">Ghost</span>        <span class="mf">73.781250</span>
-<span class="n">Grass</span>        <span class="mf">73.214286</span>
-<span class="n">Ground</span>       <span class="mf">95.750000</span>
-<span class="n">Ice</span>          <span class="mf">72.750000</span>
-<span class="n">Normal</span>       <span class="mf">73.469388</span>
-<span class="n">Poison</span>       <span class="mf">74.678571</span>
-<span class="n">Psychic</span>      <span class="mf">71.456140</span>
-<span class="n">Rock</span>         <span class="mf">92.863636</span>
-<span class="n">Steel</span>        <span class="mf">92.703704</span>
-<span class="n">Water</span>        <span class="mf">74.151786</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Attack</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type 1
+Bug          70.971014
+Dark         88.387097
+Dragon      112.125000
+Electric     69.090909
+Fairy        61.529412
+Fighting     96.777778
+Fire         84.769231
+Flying       78.750000
+Ghost        73.781250
+Grass        73.214286
+Ground       95.750000
+Ice          72.750000
+Normal       73.469388
+Poison       74.678571
+Psychic      71.456140
+Rock         92.863636
+Steel        92.703704
+Water        74.151786
+Name: Attack, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -6115,26 +6113,26 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span> <span class="mi">1</span>
-<span class="n">Bug</span>          <span class="mf">70.724638</span>
-<span class="n">Dark</span>         <span class="mf">70.225806</span>
-<span class="n">Dragon</span>       <span class="mf">86.375000</span>
-<span class="n">Electric</span>     <span class="mf">66.295455</span>
-<span class="n">Fairy</span>        <span class="mf">65.705882</span>
-<span class="n">Fighting</span>     <span class="mf">65.925926</span>
-<span class="n">Fire</span>         <span class="mf">67.769231</span>
-<span class="n">Flying</span>       <span class="mf">66.250000</span>
-<span class="n">Ghost</span>        <span class="mf">81.187500</span>
-<span class="n">Grass</span>        <span class="mf">70.800000</span>
-<span class="n">Ground</span>       <span class="mf">84.843750</span>
-<span class="n">Ice</span>          <span class="mf">71.416667</span>
-<span class="n">Normal</span>       <span class="mf">59.846939</span>
-<span class="n">Poison</span>       <span class="mf">68.821429</span>
-<span class="n">Psychic</span>      <span class="mf">67.684211</span>
-<span class="n">Rock</span>        <span class="mf">100.795455</span>
-<span class="n">Steel</span>       <span class="mf">126.370370</span>
-<span class="n">Water</span>        <span class="mf">72.946429</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Defense</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type 1
+Bug          70.724638
+Dark         70.225806
+Dragon       86.375000
+Electric     66.295455
+Fairy        65.705882
+Fighting     65.925926
+Fire         67.769231
+Flying       66.250000
+Ghost        81.187500
+Grass        70.800000
+Ground       84.843750
+Ice          71.416667
+Normal       59.846939
+Poison       68.821429
+Psychic      67.684211
+Rock        100.795455
+Steel       126.370370
+Water        72.946429
+Name: Defense, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -6560,18 +6558,18 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span> <span class="mi">1</span>  <span class="n">Type</span> <span class="mi">2</span>  
-<span class="n">Bug</span>     <span class="n">Electric</span>    <span class="mf">395.500000</span>
-        <span class="n">Fighting</span>    <span class="mf">550.000000</span>
-        <span class="n">Fire</span>        <span class="mf">455.000000</span>
-        <span class="n">Flying</span>      <span class="mf">419.500000</span>
-        <span class="n">Ghost</span>       <span class="mf">236.000000</span>
-        <span class="n">Grass</span>       <span class="mf">384.000000</span>
-        <span class="n">Ground</span>      <span class="mf">345.000000</span>
-        <span class="n">Poison</span>      <span class="mf">347.916667</span>
-        <span class="n">Rock</span>        <span class="mf">435.000000</span>
-        <span class="n">Steel</span>       <span class="mf">509.714286</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Total</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type 1  Type 2  
+Bug     Electric    395.500000
+        Fighting    550.000000
+        Fire        455.000000
+        Flying      419.500000
+        Ghost       236.000000
+        Grass       384.000000
+        Ground      345.000000
+        Poison      347.916667
+        Rock        435.000000
+        Steel       509.714286
+Name: Total, dtype: float64
 </pre></div>
 </div>
 </div>

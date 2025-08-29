@@ -8,8 +8,9 @@ extensions = [
     "sphinx_design",   # design blocks
 ]
 nb_execution_mode = "off"        # don't execute notebooks on CI; just render
-nb_render_text_lexer = "python"  # fallback for text cells
-nb_output_stderr = "remove"     # hide stderr outputs
+# nb_render_text_lexer = "python"  # fallback for text cells
+nb_output_stderr = "show"     # hide stderr outputs
+nb_execution_show_tb = True  # show traceback on errors
 
 # -- HTML -------------------------------------------------------------
 html_theme = "pydata_sphinx_theme"
@@ -22,6 +23,12 @@ html_css_files = [
     "css/date.css",
     "css/footer.css"
 ]
+html_context = {
+    "default_mode": "light",
+    "github_user": "cornel05",
+    "github_repo": "cornel.ai",
+    "github_version": "main",
+}
 html_theme_options = {
     "show_prev_next": True,
     "navigation_depth": 2,
@@ -65,9 +72,16 @@ sphinx ={}
 
 # MyST extensions --------------------------------------------------------------
 myst_enable_extensions = [
-    "amsmath",
     "dollarmath",
-    "html_image"
+    "amsmath", 
+    "deflist",
+    "html_admonition",
+    "html_image",
+    "colon_fence",
+    "smartquotes",
+    "replacements",
+    "linkify",
+    "substitution"
 ]
 
 # Copyright info -----------------------------------------------------
