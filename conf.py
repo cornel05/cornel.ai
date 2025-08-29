@@ -30,6 +30,7 @@ html_context = {
     "github_version": "main",
 }
 html_theme_options = {
+    "secondary_sidebar_items": ["page-toc", "sourcelink"],
     "show_prev_next": True,
     "navigation_depth": 2,
     "show_nav_level": 1,
