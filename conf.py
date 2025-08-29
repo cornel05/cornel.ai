@@ -21,7 +21,8 @@ html_static_path = ["_static"]
 html_css_files = [
     "css/landing_page.css",
     "css/date.css",
-    "css/footer.css"
+    "css/footer.css",
+    "css/font.css",
 ]
 html_context = {
     "default_mode": "light",

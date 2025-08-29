@@ -1,6 +1,7 @@
 :notoc:
 :html_theme.sidebar_secondary.remove:
 
+===========
 cornel.ai
 ===========
 
@@ -113,9 +114,11 @@ Welcome 👋 — hands-on notebooks for **Classification**, **Regression**, **Op
 
             To the Python snippets
 
+Contents
+========
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    notebooks/classification/index.rst
    notebooks/regression/index.rst
@@ -124,15 +127,19 @@ Welcome 👋 — hands-on notebooks for **Classification**, **Regression**, **Op
    notebooks/pandas/index.rst
    notebooks/python_snippets/index.rst
 
-.. toctree::
-    :maxdepth: 1
-    :caption: My Github Profile:
-    
-    GitHub: cornel05 <https://github.com/cornel05>
+My Github Profile
+=================
 
 .. toctree::
     :maxdepth: 1
-    :caption: My Second Page (still under development):
+    
+    GitHub: cornel05 <https://github.com/cornel05>
+
+My Personal Website (under development)
+===============================================
+
+.. toctree::
+    :maxdepth: 1
     
     cornel05.github.io <https://cornel05.github.io/>
 
