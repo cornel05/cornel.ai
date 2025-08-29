@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>NumPy ND Arrays &#8212; AI Learning Labs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/landing_page.css?v=9204f5bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/date.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/footer.css?v=7252cef9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/python_snippets/numpy_nd_array/numpy_nd_array';</script>
+    <link rel="icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Python &amp; NumPy 1D, 2D, 3D Lists" href="../python_numpy_1d_2d_3d_list/python_numpy_1d_2d_3d_list.html" />
+    <link rel="prev" title="Python 1D, 2D Lists" href="../python_1d_2d_list/python_1d_2d_list.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">cornel.ai</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
+    Classification
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../regression/index.html">
+    Regression
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../optimization/index.html">
+    Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
+    Computer Vision
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../pandas/index.html">
+    Pandas
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Python Snippets
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/dcornel05" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/cornel-ai" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
+    Classification
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../regression/index.html">
+    Regression
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../optimization/index.html">
+    Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
+    Computer Vision
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../pandas/index.html">
+    Pandas
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Python Snippets
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/dcornel05" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/cornel-ai" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Snippets</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_1d_2d_list/python_1d_2d_list.html">Python 1D, 2D Lists</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">NumPy ND Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_numpy_1d_2d_3d_list/python_numpy_1d_2d_3d_list.html">Python &amp; NumPy 1D, 2D, 3D Lists</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Python Snippets</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">NumPy ND Arrays</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numpy-nd-arrays">
+<h1>NumPy ND Arrays<a class="headerlink" href="#numpy-nd-arrays" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Sum of elements and store in sum_of_matrix variable</p></li>
+<li><p>Find max/min element in matrix and store in max_value/min_value variable</p></li>
+</ul>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">sum_of_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="n">max_value</span><span class="p">,</span> <span class="n">min_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_of_matrix</span><span class="p">,</span> <span class="n">max_value</span><span class="p">,</span> <span class="n">min_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">50</span> <span class="mi">9</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">max_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">min_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">max_idx</span><span class="p">]</span>
+<span class="n">min_value</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">min_idx</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">max_value</span><span class="p">,</span> <span class="n">min_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="create-numpy-array">
+<h2>Create Numpy array<a class="headerlink" href="#create-numpy-array" title="Link to this heading">#</a></h2>
+<section id="from-list">
+<h3>From List<a class="headerlink" href="#from-list" title="Link to this heading">#</a></h3>
+<ul>
+<li><h4 class="rubric" id="create-1d-array-from-list-1-2-3-4-5">Create 1D array from list <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code></h4>
+</li>
+<li><h4 class="rubric" id="create-2d-array-of-shape-2x3-from-list-1-2-3-4-5-6">Create 2D array of shape 2x3 from list <code class="docutils literal notranslate"><span class="pre">[[1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[4,</span> <span class="pre">5,</span> <span class="pre">6]]</span></code></h4>
+</li>
+<li><h4 class="rubric" id="create-3d-array-of-shape-2x2x3-from-list-1-2-3-4-5-6-7-8-9-10-11-12">Create 3D array of shape 2x2x3 from list <code class="docutils literal notranslate"><span class="pre">[[[1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[4,</span> <span class="pre">5,</span> <span class="pre">6]],</span> <span class="pre">[[7,</span> <span class="pre">8,</span> <span class="pre">9],</span> <span class="pre">[10,</span> <span class="pre">11,</span> <span class="pre">12]]]</span></code></h4>
+</li>
+</ul>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">list_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">list_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">list_3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list_1d: &#39;</span><span class="p">,</span> <span class="n">list_1d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list_2d: &#39;</span><span class="p">,</span> <span class="n">list_2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list_3d: &#39;</span><span class="p">,</span> <span class="n">list_3d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_1d</span><span class="p">:</span>  <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">list_2d</span><span class="p">:</span>  <span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]]</span>
+<span class="n">list_3d</span><span class="p">:</span>  <span class="p">[[[</span> <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span><span class="p">]</span>
+  <span class="p">[</span> <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span><span class="p">]]</span>
+
+ <span class="p">[[</span> <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span><span class="p">]]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_3d</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">list_3d</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">list_3d</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="array-creation-functions">
+<h2>Array Creation Functions<a class="headerlink" href="#array-creation-functions" title="Link to this heading">#</a></h2>
+<section id="np-zeros-shape-dtype-float-order-c-like-none">
+<h3><code class="docutils literal notranslate"><span class="pre">np.zeros(shape,</span> <span class="pre">dtype=float,</span> <span class="pre">order='C',</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code><a class="headerlink" href="#np-zeros-shape-dtype-float-order-c-like-none" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">zeros_matrix_2x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zeros_matrix_2x3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="np-ones-shape-dtype-none-order-c-like-none">
+<h3><code class="docutils literal notranslate"><span class="pre">np.ones(shape,</span> <span class="pre">dtype=None,</span> <span class="pre">order='C',</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code><a class="headerlink" href="#np-ones-shape-dtype-none-order-c-like-none" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">ones_matrix_2x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ones_matrix_2x3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">1.</span> <span class="mf">1.</span> <span class="mf">1.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span> <span class="mf">1.</span> <span class="mf">1.</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="np-full-shape-fill-value-dtype-none-order-c-like-none">
+<h3><code class="docutils literal notranslate"><span class="pre">np.full(shape,</span> <span class="pre">fill_value,</span> <span class="pre">dtype=None,</span> <span class="pre">order='C',</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code><a class="headerlink" href="#np-full-shape-fill-value-dtype-none-order-c-like-none" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">full_of_9_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_of_9_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">9</span> <span class="mi">9</span> <span class="mi">9</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">9</span> <span class="mi">9</span> <span class="mi">9</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="np-arange-start-stop-step-dtype-none-like-none">
+<h3>[<code class="docutils literal notranslate"><span class="pre">np.arange([start,</span> <span class="pre">]stop,</span> <span class="pre">[step,</span> <span class="pre">]dtype=None,</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code>]<a class="headerlink" href="#np-arange-start-stop-step-dtype-none-like-none" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">arange_numpy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arange_numpy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="np-eye-n-m-none-k-0-dtype-class-float-order-c-like-none">
+<h3><code class="docutils literal notranslate"><span class="pre">np.eye(N,</span> <span class="pre">M=None,</span> <span class="pre">k=0,</span> <span class="pre">dtype=&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">order='C',</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code><a class="headerlink" href="#np-eye-n-m-none-k-0-dtype-class-float-order-c-like-none" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">ones_in_diagonal_zeros_elsewhere</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ones_in_diagonal_zeros_elsewhere</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">1.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">1.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">1.</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="np-random-random-size-none">
+<h3><code class="docutils literal notranslate"><span class="pre">np.random.random(size=None)</span></code><a class="headerlink" href="#np-random-random-size-none" title="Link to this heading">#</a></h3>
+<p>Return random floats in the half-open interval <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0)</span></code>.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">0.3511155</span>  <span class="mf">0.15105555</span> <span class="mf">0.04231165</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.38675743</span> <span class="mf">0.85587757</span> <span class="mf">0.31778496</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="important-numpy-functions">
+<h2>Important Numpy functions<a class="headerlink" href="#important-numpy-functions" title="Link to this heading">#</a></h2>
+<section id="np-clip-a-a-min-a-max-out-none-kwargs">
+<h3><code class="docutils literal notranslate"><span class="pre">np.clip(a,</span> <span class="pre">a_min,</span> <span class="pre">a_max,</span> <span class="pre">out=None,</span> <span class="pre">**kwargs)</span></code><a class="headerlink" href="#np-clip-a-a-min-a-max-out-none-kwargs" title="Link to this heading">#</a></h3>
+<p>Any values less than <code class="docutils literal notranslate"><span class="pre">a_min</span></code> are set to <code class="docutils literal notranslate"><span class="pre">a_min</span></code>, and any values greater than <code class="docutils literal notranslate"><span class="pre">a_max</span></code> are set to <code class="docutils literal notranslate"><span class="pre">a_max</span></code>.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">clipped_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clipped_arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">3</span> <span class="mi">5</span> <span class="mi">8</span> <span class="mi">8</span> <span class="mi">3</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="np-concatenate-a1-a2-axis-0-out-none-dtype-none-casting-same-kind">
+<h3><code class="docutils literal notranslate"><span class="pre">np.concatenate((a1,</span> <span class="pre">a2,</span> <span class="pre">...),</span> <span class="pre">axis=0,</span> <span class="pre">out=None,</span> <span class="pre">dtype=None,</span> <span class="pre">casting=&quot;same_kind&quot;)</span></code><a class="headerlink" href="#np-concatenate-a1-a2-axis-0-out-none-dtype-none-casting-same-kind" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">concatenated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">concatenated</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="add-more-axes-to-the-array">
+<h3>Add more axes to the array<a class="headerlink" href="#add-more-axes-to-the-array" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">new_arr1</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">new_arr2</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_arr1</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">new_arr1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_arr2</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">new_arr2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="np-vectorize-pyfunc-otypes-none-doc-none-excluded-none-cache-false-signature-none">
+<h3><code class="docutils literal notranslate"><span class="pre">np.vectorize(pyfunc,</span> <span class="pre">otypes=None,</span> <span class="pre">doc=None,</span> <span class="pre">excluded=None,</span> <span class="pre">cache=False,</span> <span class="pre">signature=None)</span></code><a class="headerlink" href="#np-vectorize-pyfunc-otypes-none-doc-none-excluded-none-cache-false-signature-none" title="Link to this heading">#</a></h3>
+<p>This function converts a Python function that operates on scalars into a vectorized function that can operate on NumPy arrays.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">radius_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">vectorized_func</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">calculate_circle_area</span><span class="p">)</span>
+<span class="n">area_values</span> <span class="o">=</span> <span class="n">vectorized_func</span><span class="p">(</span><span class="n">radius_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mf">3.14159265</span> <span class="mf">12.56637061</span> <span class="mf">28.27433388</span> <span class="mf">50.26548246</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="np-where-condition-x-none-y-none-out-none">
+<h3><code class="docutils literal notranslate"><span class="pre">np.where(condition,</span> <span class="pre">x=None,</span> <span class="pre">y=None,</span> <span class="pre">*,</span> <span class="pre">out=None)</span></code><a class="headerlink" href="#np-where-condition-x-none-y-none-out-none" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">greater_than_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greater_than_3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="array-flatten-order-c">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;array&gt;.flatten(order='C')</span></code><a class="headerlink" href="#array-flatten-order-c" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">flattened_arr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../python_1d_2d_list/python_1d_2d_list.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Python 1D, 2D Lists</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../python_numpy_1d_2d_3d_list/python_numpy_1d_2d_3d_list.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python &amp; NumPy 1D, 2D, 3D Lists</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-numpy-array">Create Numpy array</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-list">From List</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-creation-functions">Array Creation Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-zeros-shape-dtype-float-order-c-like-none"><code class="docutils literal notranslate"><span class="pre">np.zeros(shape,</span> <span class="pre">dtype=float,</span> <span class="pre">order='C',</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-ones-shape-dtype-none-order-c-like-none"><code class="docutils literal notranslate"><span class="pre">np.ones(shape,</span> <span class="pre">dtype=None,</span> <span class="pre">order='C',</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-full-shape-fill-value-dtype-none-order-c-like-none"><code class="docutils literal notranslate"><span class="pre">np.full(shape,</span> <span class="pre">fill_value,</span> <span class="pre">dtype=None,</span> <span class="pre">order='C',</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-arange-start-stop-step-dtype-none-like-none">[<code class="docutils literal notranslate"><span class="pre">np.arange([start,</span> <span class="pre">]stop,</span> <span class="pre">[step,</span> <span class="pre">]dtype=None,</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code>]</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-eye-n-m-none-k-0-dtype-class-float-order-c-like-none"><code class="docutils literal notranslate"><span class="pre">np.eye(N,</span> <span class="pre">M=None,</span> <span class="pre">k=0,</span> <span class="pre">dtype=&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">order='C',</span> <span class="pre">*,</span> <span class="pre">like=None)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-random-random-size-none"><code class="docutils literal notranslate"><span class="pre">np.random.random(size=None)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-numpy-functions">Important Numpy functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-clip-a-a-min-a-max-out-none-kwargs"><code class="docutils literal notranslate"><span class="pre">np.clip(a,</span> <span class="pre">a_min,</span> <span class="pre">a_max,</span> <span class="pre">out=None,</span> <span class="pre">**kwargs)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-concatenate-a1-a2-axis-0-out-none-dtype-none-casting-same-kind"><code class="docutils literal notranslate"><span class="pre">np.concatenate((a1,</span> <span class="pre">a2,</span> <span class="pre">...),</span> <span class="pre">axis=0,</span> <span class="pre">out=None,</span> <span class="pre">dtype=None,</span> <span class="pre">casting="same_kind")</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-more-axes-to-the-array">Add more axes to the array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-vectorize-pyfunc-otypes-none-doc-none-excluded-none-cache-false-signature-none"><code class="docutils literal notranslate"><span class="pre">np.vectorize(pyfunc,</span> <span class="pre">otypes=None,</span> <span class="pre">doc=None,</span> <span class="pre">excluded=None,</span> <span class="pre">cache=False,</span> <span class="pre">signature=None)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-where-condition-x-none-y-none-out-none"><code class="docutils literal notranslate"><span class="pre">np.where(condition,</span> <span class="pre">x=None,</span> <span class="pre">y=None,</span> <span class="pre">*,</span> <span class="pre">out=None)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-flatten-order-c"><code class="docutils literal notranslate"><span class="pre">&lt;array&gt;.flatten(order='C')</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/notebooks/python_snippets/numpy_nd_array/numpy_nd_array.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, cornel @ AI Learning Labs.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

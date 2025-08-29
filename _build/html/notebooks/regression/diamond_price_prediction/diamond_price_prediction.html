@@ -1,0 +1,1722 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Diamond Price Prediction &#8212; AI Learning Labs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/landing_page.css?v=9204f5bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/date.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/footer.css?v=7252cef9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/regression/diamond_price_prediction/diamond_price_prediction';</script>
+    <link rel="icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Simple Linear Regression" href="../regression_with_single_perceptron/regression_with_single_perceptron.html" />
+    <link rel="prev" title="Regression" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">cornel.ai</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
+    Classification
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Regression
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../optimization/index.html">
+    Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
+    Computer Vision
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../pandas/index.html">
+    Pandas
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../python_snippets/index.html">
+    Python Snippets
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/dcornel05" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/cornel-ai" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
+    Classification
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Regression
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../optimization/index.html">
+    Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
+    Computer Vision
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../pandas/index.html">
+    Pandas
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../python_snippets/index.html">
+    Python Snippets
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/dcornel05" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/cornel-ai" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Real-World Examples and Demos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Diamond Price Prediction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../regression_with_single_perceptron/regression_with_single_perceptron.html">Simple Linear Regression</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Regression</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Diamond...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="diamond-price-prediction">
+<h1>Diamond Price Prediction<a class="headerlink" href="#diamond-price-prediction" title="Link to this heading">#</a></h1>
+<section id="demo-website">
+<h2>Demo website<a class="headerlink" href="#demo-website" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://diamond-price-predict.streamlit.app/">Diamond Price Prediction</a> -  Built with Streamlit and deployed on Streamlit Cloud.</p>
+</section>
+<section id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-datasets-from-kaggle">
+<h2>Import datasets from Kaggle<a class="headerlink" href="#import-datasets-from-kaggle" title="Link to this heading">#</a></h2>
+<p>This dataset is available on Kaggle at <a class="reference external" href="https://www.kaggle.com/datasets/natedir/diamonds">Diamond Price Prediction</a>.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/diamonds.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>   <span class="n">Unnamed</span><span class="p">:</span> <span class="mi">0</span>  <span class="n">carat</span>      <span class="n">cut</span> <span class="n">color</span> <span class="n">clarity</span>  <span class="n">depth</span>  <span class="n">table</span>  <span class="n">price</span>     <span class="n">x</span>     <span class="n">y</span>  \
+ <span class="mi">0</span>           <span class="mi">1</span>   <span class="mf">0.23</span>    <span class="n">Ideal</span>     <span class="n">E</span>     <span class="n">SI2</span>   <span class="mf">61.5</span>   <span class="mf">55.0</span>    <span class="mi">326</span>  <span class="mf">3.95</span>  <span class="mf">3.98</span>   
+ <span class="mi">1</span>           <span class="mi">2</span>   <span class="mf">0.21</span>  <span class="n">Premium</span>     <span class="n">E</span>     <span class="n">SI1</span>   <span class="mf">59.8</span>   <span class="mf">61.0</span>    <span class="mi">326</span>  <span class="mf">3.89</span>  <span class="mf">3.84</span>   
+ <span class="mi">2</span>           <span class="mi">3</span>   <span class="mf">0.23</span>     <span class="n">Good</span>     <span class="n">E</span>     <span class="n">VS1</span>   <span class="mf">56.9</span>   <span class="mf">65.0</span>    <span class="mi">327</span>  <span class="mf">4.05</span>  <span class="mf">4.07</span>   
+ <span class="mi">3</span>           <span class="mi">4</span>   <span class="mf">0.29</span>  <span class="n">Premium</span>     <span class="n">I</span>     <span class="n">VS2</span>   <span class="mf">62.4</span>   <span class="mf">58.0</span>    <span class="mi">334</span>  <span class="mf">4.20</span>  <span class="mf">4.23</span>   
+ <span class="mi">4</span>           <span class="mi">5</span>   <span class="mf">0.31</span>     <span class="n">Good</span>     <span class="n">J</span>     <span class="n">SI2</span>   <span class="mf">63.3</span>   <span class="mf">58.0</span>    <span class="mi">335</span>  <span class="mf">4.34</span>  <span class="mf">4.35</span>   
+ 
+       <span class="n">z</span>  
+ <span class="mi">0</span>  <span class="mf">2.43</span>  
+ <span class="mi">1</span>  <span class="mf">2.31</span>  
+ <span class="mi">2</span>  <span class="mf">2.31</span>  
+ <span class="mi">3</span>  <span class="mf">2.63</span>  
+ <span class="mi">4</span>  <span class="mf">2.75</span>  <span class="p">,</span>
+ <span class="p">(</span><span class="mi">53940</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Eliminate the leftmost column, which is just an index.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-exploration">
+<h2>Data Exploration<a class="headerlink" href="#data-exploration" title="Link to this heading">#</a></h2>
+<section id="print-first-few-rows-shape-and-data-types">
+<h3>Print first few rows, shape, and data types<a class="headerlink" href="#print-first-few-rows-shape-and-data-types" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>   <span class="n">carat</span>      <span class="n">cut</span> <span class="n">color</span> <span class="n">clarity</span>  <span class="n">depth</span>  <span class="n">table</span>  <span class="n">price</span>     <span class="n">x</span>     <span class="n">y</span>     <span class="n">z</span>
+ <span class="mi">0</span>   <span class="mf">0.23</span>    <span class="n">Ideal</span>     <span class="n">E</span>     <span class="n">SI2</span>   <span class="mf">61.5</span>   <span class="mf">55.0</span>    <span class="mi">326</span>  <span class="mf">3.95</span>  <span class="mf">3.98</span>  <span class="mf">2.43</span>
+ <span class="mi">1</span>   <span class="mf">0.21</span>  <span class="n">Premium</span>     <span class="n">E</span>     <span class="n">SI1</span>   <span class="mf">59.8</span>   <span class="mf">61.0</span>    <span class="mi">326</span>  <span class="mf">3.89</span>  <span class="mf">3.84</span>  <span class="mf">2.31</span>
+ <span class="mi">2</span>   <span class="mf">0.23</span>     <span class="n">Good</span>     <span class="n">E</span>     <span class="n">VS1</span>   <span class="mf">56.9</span>   <span class="mf">65.0</span>    <span class="mi">327</span>  <span class="mf">4.05</span>  <span class="mf">4.07</span>  <span class="mf">2.31</span>
+ <span class="mi">3</span>   <span class="mf">0.29</span>  <span class="n">Premium</span>     <span class="n">I</span>     <span class="n">VS2</span>   <span class="mf">62.4</span>   <span class="mf">58.0</span>    <span class="mi">334</span>  <span class="mf">4.20</span>  <span class="mf">4.23</span>  <span class="mf">2.63</span>
+ <span class="mi">4</span>   <span class="mf">0.31</span>     <span class="n">Good</span>     <span class="n">J</span>     <span class="n">SI2</span>   <span class="mf">63.3</span>   <span class="mf">58.0</span>    <span class="mi">335</span>  <span class="mf">4.34</span>  <span class="mf">4.35</span>  <span class="mf">2.75</span><span class="p">,</span>
+ <span class="p">(</span><span class="mi">53940</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+ <span class="n">carat</span>      <span class="n">float64</span>
+ <span class="n">cut</span>         <span class="nb">object</span>
+ <span class="n">color</span>       <span class="nb">object</span>
+ <span class="n">clarity</span>     <span class="nb">object</span>
+ <span class="n">depth</span>      <span class="n">float64</span>
+ <span class="n">table</span>      <span class="n">float64</span>
+ <span class="n">price</span>        <span class="n">int64</span>
+ <span class="n">x</span>          <span class="n">float64</span>
+ <span class="n">y</span>          <span class="n">float64</span>
+ <span class="n">z</span>          <span class="n">float64</span>
+ <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="use-describe-to-get-summary-statistics">
+<h3>Use <code class="docutils literal notranslate"><span class="pre">describe()</span></code> to get summary statistics<a class="headerlink" href="#use-describe-to-get-summary-statistics" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.797940</td>
+      <td>61.749405</td>
+      <td>57.457184</td>
+      <td>3932.799722</td>
+      <td>5.731157</td>
+      <td>5.734526</td>
+      <td>3.538734</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.474011</td>
+      <td>1.432621</td>
+      <td>2.234491</td>
+      <td>3989.439738</td>
+      <td>1.121761</td>
+      <td>1.142135</td>
+      <td>0.705699</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.200000</td>
+      <td>43.000000</td>
+      <td>43.000000</td>
+      <td>326.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.400000</td>
+      <td>61.000000</td>
+      <td>56.000000</td>
+      <td>950.000000</td>
+      <td>4.710000</td>
+      <td>4.720000</td>
+      <td>2.910000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.700000</td>
+      <td>61.800000</td>
+      <td>57.000000</td>
+      <td>2401.000000</td>
+      <td>5.700000</td>
+      <td>5.710000</td>
+      <td>3.530000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.040000</td>
+      <td>62.500000</td>
+      <td>59.000000</td>
+      <td>5324.250000</td>
+      <td>6.540000</td>
+      <td>6.540000</td>
+      <td>4.040000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.010000</td>
+      <td>79.000000</td>
+      <td>95.000000</td>
+      <td>18823.000000</td>
+      <td>10.740000</td>
+      <td>58.900000</td>
+      <td>31.800000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Print 7 histograms, with each title describe shortly the distribution style of the data (e.g. right-skewed, clustered,...)</span>
+<span class="n">diamond_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../../../_images/0489f505cbcb562067f5b023eafe854631ff4b1a5375f37736da640d68b0582b.png" src="../../../_images/0489f505cbcb562067f5b023eafe854631ff4b1a5375f37736da640d68b0582b.png" />
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The scatter matrix is a great way to visualize the relationships between multiple variables in a dataset.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">scatter_matrix</span>
+<span class="n">scatter_matrix</span><span class="p">(</span><span class="n">diamond_df</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">diagonal</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../../../_images/d09295e1de3afd20bd440847c47bcd1388acb0a056fd1eb1c9ade41447501d98.png" src="../../../_images/d09295e1de3afd20bd440847c47bcd1388acb0a056fd1eb1c9ade41447501d98.png" />
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="data-preparation">
+<h2>Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h2>
+<section id="manipulate-categorical-variables">
+<h3>Manipulate categorical variables<a class="headerlink" href="#manipulate-categorical-variables" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;clarity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Ideal&#39;</span><span class="p">,</span> <span class="s1">&#39;Premium&#39;</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Very Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Fair&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="s1">&#39;SI2&#39;</span><span class="p">,</span> <span class="s1">&#39;SI1&#39;</span><span class="p">,</span> <span class="s1">&#39;VS1&#39;</span><span class="p">,</span> <span class="s1">&#39;VS2&#39;</span><span class="p">,</span> <span class="s1">&#39;VVS2&#39;</span><span class="p">,</span> <span class="s1">&#39;VVS1&#39;</span><span class="p">,</span> <span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="s1">&#39;IF&#39;</span><span class="p">],</span>
+       <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;J&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+<span class="n">diamond_df</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">color_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clarity_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;I1&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;SI2&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;SI1&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;VS2&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;VS1&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;VVS2&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;VVS1&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;IF&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+<span class="n">diamond_df</span><span class="o">.</span><span class="n">clarity</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">clarity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">clarity_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cut_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Fair&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Very Good&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Premium&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Ideal&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">diamond_df</span><span class="o">.</span><span class="n">cut</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">cut</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">cut_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.797940</td>
+      <td>2.904097</td>
+      <td>3.405803</td>
+      <td>3.051020</td>
+      <td>61.749405</td>
+      <td>57.457184</td>
+      <td>3932.799722</td>
+      <td>5.731157</td>
+      <td>5.734526</td>
+      <td>3.538734</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.474011</td>
+      <td>1.116600</td>
+      <td>1.701105</td>
+      <td>1.647136</td>
+      <td>1.432621</td>
+      <td>2.234491</td>
+      <td>3989.439738</td>
+      <td>1.121761</td>
+      <td>1.142135</td>
+      <td>0.705699</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.200000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>43.000000</td>
+      <td>43.000000</td>
+      <td>326.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.400000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>61.000000</td>
+      <td>56.000000</td>
+      <td>950.000000</td>
+      <td>4.710000</td>
+      <td>4.720000</td>
+      <td>2.910000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.700000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>61.800000</td>
+      <td>57.000000</td>
+      <td>2401.000000</td>
+      <td>5.700000</td>
+      <td>5.710000</td>
+      <td>3.530000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.040000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>62.500000</td>
+      <td>59.000000</td>
+      <td>5324.250000</td>
+      <td>6.540000</td>
+      <td>6.540000</td>
+      <td>4.040000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.010000</td>
+      <td>4.000000</td>
+      <td>6.000000</td>
+      <td>7.000000</td>
+      <td>79.000000</td>
+      <td>95.000000</td>
+      <td>18823.000000</td>
+      <td>10.740000</td>
+      <td>58.900000</td>
+      <td>31.800000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+</section>
+<section id="eliminate-disturbing-values">
+<h3>Eliminate disturbing values<a class="headerlink" href="#eliminate-disturbing-values" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">diamond_df</span><span class="p">[</span><span class="n">diamond_df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">diamond_df</span><span class="p">[</span><span class="n">diamond_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">diamond_df</span><span class="p">[</span><span class="n">diamond_df</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eliminate-values-that-99-of-the-rest">
+<h3>Eliminate values that &gt; 99% of the rest<a class="headerlink" href="#eliminate-values-that-99-of-the-rest" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="p">[</span><span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">)]</span>
+<span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="p">[</span><span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">)]</span>
+<span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="p">[</span><span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">)]</span>
+<span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="p">[</span><span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">)]</span>
+<span class="n">diamond_df</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="p">[</span><span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.23</td>
+      <td>4</td>
+      <td>5</td>
+      <td>1</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.21</td>
+      <td>3</td>
+      <td>5</td>
+      <td>2</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.29</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.31</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.24</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>62.8</td>
+      <td>57.0</td>
+      <td>336</td>
+      <td>3.94</td>
+      <td>3.96</td>
+      <td>2.48</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.24</td>
+      <td>2</td>
+      <td>1</td>
+      <td>6</td>
+      <td>62.3</td>
+      <td>57.0</td>
+      <td>336</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.47</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.26</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>61.9</td>
+      <td>55.0</td>
+      <td>337</td>
+      <td>4.07</td>
+      <td>4.11</td>
+      <td>2.53</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.22</td>
+      <td>0</td>
+      <td>5</td>
+      <td>3</td>
+      <td>65.1</td>
+      <td>61.0</td>
+      <td>337</td>
+      <td>3.87</td>
+      <td>3.78</td>
+      <td>2.49</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.23</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+      <td>59.4</td>
+      <td>61.0</td>
+      <td>338</td>
+      <td>4.00</td>
+      <td>4.05</td>
+      <td>2.39</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.30</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>64.0</td>
+      <td>55.0</td>
+      <td>339</td>
+      <td>4.25</td>
+      <td>4.28</td>
+      <td>2.73</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamond_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+      <td>51130.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.748505</td>
+      <td>2.965500</td>
+      <td>3.463974</td>
+      <td>3.117426</td>
+      <td>61.717375</td>
+      <td>57.349591</td>
+      <td>3561.244631</td>
+      <td>5.637999</td>
+      <td>5.641865</td>
+      <td>3.480219</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.406608</td>
+      <td>1.060319</td>
+      <td>1.679777</td>
+      <td>1.640241</td>
+      <td>1.285391</td>
+      <td>2.074312</td>
+      <td>3475.346374</td>
+      <td>1.035121</td>
+      <td>1.028587</td>
+      <td>0.637887</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.200000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>43.000000</td>
+      <td>43.000000</td>
+      <td>326.000000</td>
+      <td>3.730000</td>
+      <td>3.680000</td>
+      <td>1.070000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.390000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>61.100000</td>
+      <td>56.000000</td>
+      <td>921.000000</td>
+      <td>4.680000</td>
+      <td>4.690000</td>
+      <td>2.890000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.700000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>61.800000</td>
+      <td>57.000000</td>
+      <td>2273.000000</td>
+      <td>5.640000</td>
+      <td>5.650000</td>
+      <td>3.480000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.020000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>62.500000</td>
+      <td>59.000000</td>
+      <td>4997.000000</td>
+      <td>6.480000</td>
+      <td>6.480000</td>
+      <td>4.010000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.070000</td>
+      <td>4.000000</td>
+      <td>6.000000</td>
+      <td>7.000000</td>
+      <td>65.500000</td>
+      <td>63.500000</td>
+      <td>18806.000000</td>
+      <td>8.300000</td>
+      <td>8.150000</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">diamond_df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">51130</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">51130</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="data-for-training-and-testing">
+<h3>Data for Training and Testing<a class="headerlink" href="#data-for-training-and-testing" title="Link to this heading">#</a></h3>
+<p>Split dataset into 80% training and 20% testing.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.8</span><span class="p">)]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.8</span><span class="p">)]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.8</span><span class="p">):]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.8</span><span class="p">):]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Normailize the data by subtracting the mean and dividing by the standard deviation.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xmean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">xstd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_train</span> <span class="o">-</span> <span class="n">xmean</span><span class="p">)</span> <span class="o">/</span> <span class="n">xstd</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_test</span> <span class="o">-</span> <span class="n">xmean</span><span class="p">)</span> <span class="o">/</span> <span class="n">xstd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">40904</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">10226</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">40904</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10226</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Tranpose the data so that each row is a feature and each column is an example.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X_train</span><span class="p">])</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X_test</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">40904</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">10226</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">40904</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10226</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="modeling">
+<h2>Modeling<a class="headerlink" href="#modeling" title="Link to this heading">#</a></h2>
+<section id="linear-regression-model">
+<h3>Linear Regression Model<a class="headerlink" href="#linear-regression-model" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+<span class="c1"># No explicit bias term; the first column of X_* is ones to learn the intercept via W</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="training">
+<h3>Training<a class="headerlink" href="#training" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+        <span class="c1"># Take a batch of data</span>
+        <span class="n">X_batch</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">m</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">y_batch</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">m</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># Predict y_hat</span>
+        <span class="n">y_hat</span> <span class="o">=</span> <span class="n">X_batch</span> <span class="o">@</span> <span class="n">theta</span>
+        
+        <span class="c1"># Compute loss</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_batch</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+        
+        <span class="c1"># Compute gradient</span>
+        <span class="n">gradient</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X_batch</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_batch</span><span class="p">)</span>
+        
+        <span class="c1"># Update weights</span>
+        <span class="n">theta</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">gradient</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span>
+        
+    <span class="k">if</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">n_epochs</span><span class="si">}</span><span class="s2"> - Loss: </span><span class="si">{</span><span class="n">losses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Epoch</span> <span class="mi">50</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">854690.2804881446</span>
+<span class="n">Epoch</span> <span class="mi">100</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">930888.7918352446</span>
+<span class="n">Epoch</span> <span class="mi">150</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">898086.575709949</span>
+<span class="n">Epoch</span> <span class="mi">200</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">865824.0643924325</span>
+<span class="n">Epoch</span> <span class="mi">250</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">837644.0411158183</span>
+<span class="n">Epoch</span> <span class="mi">300</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">813149.890785892</span>
+<span class="n">Epoch</span> <span class="mi">350</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">791850.0374682825</span>
+<span class="n">Epoch</span> <span class="mi">400</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">773313.9451640927</span>
+<span class="n">Epoch</span> <span class="mi">450</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">757169.9685266428</span>
+<span class="n">Epoch</span> <span class="mi">500</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">743097.4184975234</span>
+<span class="n">Epoch</span> <span class="mi">550</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">730819.5034467353</span>
+<span class="n">Epoch</span> <span class="mi">600</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">720097.2515056593</span>
+<span class="n">Epoch</span> <span class="mi">650</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">710724.2800891658</span>
+<span class="n">Epoch</span> <span class="mi">700</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">702522.2935133729</span>
+<span class="n">Epoch</span> <span class="mi">750</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">695337.2069441539</span>
+<span class="n">Epoch</span> <span class="mi">800</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">689035.8092394451</span>
+<span class="n">Epoch</span> <span class="mi">850</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">683502.8894749393</span>
+<span class="n">Epoch</span> <span class="mi">900</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">678638.7624560278</span>
+<span class="n">Epoch</span> <span class="mi">950</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">674357.1375643822</span>
+<span class="n">Epoch</span> <span class="mi">1000</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">670583.2830677389</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Validate the model, compute MSE on the test set</span>
+<span class="n">y_hat_test</span> <span class="o">=</span> <span class="n">X_test</span> <span class="o">@</span> <span class="n">theta</span>
+<span class="n">test_loss_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">y_hat_test</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test MSE: </span><span class="si">{</span><span class="n">test_loss_mse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">MSE</span><span class="p">:</span> <span class="mf">1537577.661748432</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MAE</span>
+<span class="n">test_loss_mae</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">y_hat_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test MAE: </span><span class="si">{</span><span class="n">test_loss_mae</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">MAE</span><span class="p">:</span> <span class="mf">955.1460419805663</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the model parameters</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span>
+    <span class="s1">&#39;weight.npz&#39;</span><span class="p">,</span>
+    <span class="n">x_mean</span><span class="o">=</span><span class="n">xmean</span><span class="p">,</span>
+    <span class="n">x_std</span><span class="o">=</span><span class="n">xstd</span><span class="p">,</span>
+    <span class="n">theta</span><span class="o">=</span><span class="n">theta</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the training and testing data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="s1">&#39;data.npz&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Regression</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../regression_with_single_perceptron/regression_with_single_perceptron.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Simple Linear Regression</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-website">Demo website</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-datasets-from-kaggle">Import datasets from Kaggle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration">Data Exploration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-first-few-rows-shape-and-data-types">Print first few rows, shape, and data types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-describe-to-get-summary-statistics">Use <code class="docutils literal notranslate"><span class="pre">describe()</span></code> to get summary statistics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulate-categorical-variables">Manipulate categorical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminate-disturbing-values">Eliminate disturbing values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminate-values-that-99-of-the-rest">Eliminate values that &gt; 99% of the rest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-training-and-testing">Data for Training and Testing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-model">Linear Regression Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training">Training</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/notebooks/regression/diamond_price_prediction/diamond_price_prediction.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, cornel @ AI Learning Labs.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1241 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Newton’s Method Optimization &#8212; AI Learning Labs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/landing_page.css?v=9204f5bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/date.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/footer.css?v=7252cef9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/optimization/optimization_using_newton_method/optimization_using_newton_method';</script>
+    <link rel="icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Computer Vision" href="../../computer_vision/index.html" />
+    <link rel="prev" title="Genetic Algorithm Basics" href="../genetic_algorithm/genetic_algorithm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">cornel.ai</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
+    Classification
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../regression/index.html">
+    Regression
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
+    Computer Vision
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../pandas/index.html">
+    Pandas
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../python_snippets/index.html">
+    Python Snippets
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/dcornel05" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/cornel-ai" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
+    Classification
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../regression/index.html">
+    Regression
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
+    Computer Vision
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../pandas/index.html">
+    Pandas
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../python_snippets/index.html">
+    Python Snippets
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/dcornel05" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/cornel-ai" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genetic_algorithm/genetic_algorithm.html">Genetic Algorithm Basics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Newton’s Method Optimization</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Optimization</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Newton’s...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="newton-s-method-optimization">
+<h1>Newton’s Method Optimization<a class="headerlink" href="#newton-s-method-optimization" title="Link to this heading">#</a></h1>
+<section id="function-in-one-variable">
+<h2>Function in One Variable<a class="headerlink" href="#function-in-one-variable" title="Link to this heading">#</a></h2>
+<p>You will use Newton’s method to optimize a function <span class="math notranslate nohighlight">\(f\left(x\right)\)</span>. Aiming to find a point, where the derivative equals to zero, you need to start from some initial point <span class="math notranslate nohighlight">\(x_0\)</span>, calculate first and second derivatives (<span class="math notranslate nohighlight">\(f'(x_0)\)</span> and <span class="math notranslate nohighlight">\(f''(x_0)\)</span>) and step to the next point using the expression:</p>
+<div class="math notranslate nohighlight">
+\[x_1 = x_0 - \frac{f'(x_0)}{f''(x_0)} \tag{1}\]</div>
+<p>Repeat the process iteratively. Number of iterations <span class="math notranslate nohighlight">\(n\)</span> is usually also a parameter.</p>
+<p>Let’s optimize function <span class="math notranslate nohighlight">\(f\left(x\right)=e^x - \log(x)\)</span> (defined for <span class="math notranslate nohighlight">\(x&gt;0\)</span>) using Newton’s method. To implement it in the code, define function <span class="math notranslate nohighlight">\(f\left(x\right)=e^x - \log(x)\)</span>, its first and second derivatives:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = e^x - \log(x)\]</div>
+<div class="math notranslate nohighlight">
+\[f'(x) = e^x - \frac{1}{x}\]</div>
+<div class="math notranslate nohighlight">
+\[f''(x) = e^x + \frac{1}{x^2}\]</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax</span><span class="o">,</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f_example_1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">jnp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">dfdx_example_1</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">f_example_1</span><span class="p">)</span>
+<span class="n">d2fdx2_example_1</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">dfdx_example_1</span><span class="p">)</span>
+
+<span class="n">x_0</span> <span class="o">=</span> <span class="mf">1.6</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f(</span><span class="si">{</span><span class="n">x_0</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">f_example_1</span><span class="p">(</span><span class="n">x_0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f&#39;(</span><span class="si">{</span><span class="n">x_0</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">dfdx_example_1</span><span class="p">(</span><span class="n">x_0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f&#39;&#39;(</span><span class="si">{</span><span class="n">x_0</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">d2fdx2_example_1</span><span class="p">(</span><span class="n">x_0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mf">1.6</span><span class="p">)</span> <span class="o">=</span> <span class="mf">4.483028888702393</span>
+<span class="sa">f</span><span class="s1">&#39;(1.6) = 4.328032493591309</span>
+<span class="sa">f</span><span class="s1">&#39;&#39;</span><span class="p">(</span><span class="mf">1.6</span><span class="p">)</span> <span class="o">=</span> <span class="mf">5.343657493591309</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Implement Newton’s method described above.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax</span><span class="o">,</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">newton_method</span><span class="p">(</span><span class="n">dfdx</span><span class="p">,</span> <span class="n">d2fdx2</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span><span class="n">d2fdx2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_iterations_example_1</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span> <span class="n">x_initial</span> <span class="o">=</span> <span class="mf">1.6</span>
+<span class="n">newtons_example_1</span> <span class="o">=</span> <span class="n">newton_method</span><span class="p">(</span><span class="n">dfdx_example_1</span><span class="p">,</span> <span class="n">d2fdx2_example_1</span><span class="p">,</span> <span class="n">x_initial</span><span class="p">,</span> <span class="n">num_iterations_example_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Newton&#39;s method result: x_min =&quot;</span><span class="p">,</span> <span class="n">newtons_example_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.7900618</span>
+<span class="mf">0.5436325</span>
+<span class="mf">0.5665913</span>
+<span class="mf">0.567143</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.56714326</span>
+<span class="n">Newton</span><span class="s1">&#39;s method result: x_min = 0.56714326</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Let’s compare with Gradient Descent method.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax</span><span class="o">,</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">dfdx</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_iterations</span> <span class="o">=</span> <span class="mi">35</span><span class="p">;</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span> <span class="n">x_initial</span> <span class="o">=</span> <span class="mf">1.6</span>
+<span class="n">gd_example_1</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">dfdx_example_1</span><span class="p">,</span> <span class="n">x_initial</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gradient descent result: x_min =&quot;</span><span class="p">,</span> <span class="n">gd_example_1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.5179919</span>
+<span class="mf">0.5809616</span>
+<span class="mf">0.56434345</span>
+<span class="mf">0.56776285</span>
+<span class="mf">0.5670086</span>
+<span class="mf">0.56717265</span>
+<span class="mf">0.5671369</span>
+<span class="mf">0.5671447</span>
+<span class="mf">0.56714296</span>
+<span class="mf">0.5671434</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="mf">0.56714326</span>
+<span class="mf">0.5671433</span>
+<span class="n">Gradient</span> <span class="n">descent</span> <span class="n">result</span><span class="p">:</span> <span class="n">x_min</span> <span class="o">=</span> <span class="mf">0.5671433</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="function-in-two-variables">
+<h2>Function in Two Variables<a class="headerlink" href="#function-in-two-variables" title="Link to this heading">#</a></h2>
+<p>In case of a function in two variables, Newton’s method will require even more computations. Starting from the intial point <span class="math notranslate nohighlight">\((x_0, y_0)\)</span>, the step to the next point shoud be done using the expression:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}x_1 \\ y_1\end{bmatrix} = \begin{bmatrix}x_0 \\ y_0\end{bmatrix} - H^{-1}\left(x_0, y_0\right)\nabla f\left(x_0, y_0\right)
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(H^{-1}\left(x_0, y_0\right)\)</span> is an inverse of a Hessian matrix at point <span class="math notranslate nohighlight">\((x_0, y_0)\)</span> and <span class="math notranslate nohighlight">\(\nabla f\left(x_0, y_0\right)\)</span> is the gradient at that point.</p>
+<p>Let’s implement that in the code. Define the function <span class="math notranslate nohighlight">\(f(x, y)\)</span> like in the videos, its gradient and Hessian:</p>
+<div class="math notranslate nohighlight">
+\[f(x, y) = x^4 + 0.8 y^4 + 4x^2 + 2y^2 - xy - 0.2x^2y\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla f(x, y) = \begin{bmatrix}4x^3 + 8x - y - 0.4xy \\ 3.2y^3 + 4y - x - 0.2x^2\end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}H(x, y) = \begin{bmatrix}12x^2 + 8 - 0.4y &amp; -1 - 0.4x \\ -1 - 0.4x &amp; 9.6y^2 + 4\end{bmatrix}\end{split}\]</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f_example_2</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mf">0.8</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span>
+
+<span class="n">grad_f_example_2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">f_example_2</span><span class="p">)</span>
+<span class="n">hessian_f_example_2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">f_example_2</span><span class="p">)</span>
+
+<span class="c1"># Example usage:</span>
+<span class="n">xy_0</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f(4,4) =&quot;</span><span class="p">,</span> <span class="n">f_example_2</span><span class="p">(</span><span class="n">xy_0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;grad f(4,4) =&quot;</span><span class="p">,</span> <span class="n">grad_f_example_2</span><span class="p">(</span><span class="n">xy_0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hessian f(4,4) =&quot;</span><span class="p">,</span> <span class="n">hessian_f_example_2</span><span class="p">(</span><span class="n">xy_0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mf">528.0</span>
+<span class="n">grad</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mf">277.6</span> <span class="mf">213.6</span><span class="p">]</span>
+<span class="n">Hessian</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">198.4</span>  <span class="o">-</span><span class="mf">2.6</span><span class="p">]</span>
+ <span class="p">[</span> <span class="o">-</span><span class="mf">2.6</span> <span class="mf">157.6</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">newton_method_2</span><span class="p">(</span><span class="n">hessian_f</span><span class="p">,</span> <span class="n">grad_f</span><span class="p">,</span> <span class="n">x_y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+        <span class="n">x_y</span> <span class="o">=</span> <span class="n">x_y</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">hessian_f</span><span class="p">(</span><span class="n">x_y</span><span class="p">))</span> <span class="o">@</span> <span class="n">grad_f</span><span class="p">(</span><span class="n">x_y</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x_y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x_y</span>
+
+<span class="n">num_iterations_example_2</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">x_y_initial</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+<span class="n">newtons_example_2</span> <span class="o">=</span> <span class="n">newton_method_2</span><span class="p">(</span><span class="n">hessian_f_example_2</span><span class="p">,</span> <span class="n">grad_f_example_2</span><span class="p">,</span>
+                                    <span class="n">x_y_initial</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="n">num_iterations_example_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Newton&#39;s method result: x_min, y_min =&quot;</span><span class="p">,</span> <span class="n">newtons_example_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">2.5827386</span> <span class="mf">2.6212888</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.5922568</span> <span class="mf">1.6748161</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.870589</span> <span class="mf">1.001821</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.33519423</span> <span class="mf">0.49397618</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.04123583</span> <span class="mf">0.12545902</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00019466</span> <span class="mf">0.00301028</span><span class="p">]</span>
+<span class="p">[</span><span class="o">-</span><span class="mf">2.4869223e-08</span>  <span class="mf">3.5157427e-08</span><span class="p">]</span>
+<span class="p">[</span><span class="o">-</span><span class="mf">1.7763568e-15</span>  <span class="mf">0.0000000e+00</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="n">Newton</span><span class="s1">&#39;s method result: x_min, y_min = [0. 0.]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Compare with Gradient Descent method.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent_2</span><span class="p">(</span><span class="n">grad_f</span><span class="p">,</span> <span class="n">x_y</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+        <span class="n">x_y</span> <span class="o">=</span> <span class="n">x_y</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_f</span><span class="p">(</span><span class="n">x_y</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x_y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x_y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_iterations_2</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span> <span class="n">learning_rate_2</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span> <span class="n">x_y_initial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">])</span>
+<span class="c1"># num_iterations_2 = 300; learning_rate_2 = 0.03; x_y_initial = np.array([[4], [4]])</span>
+<span class="n">gd_example_2</span> <span class="o">=</span> <span class="n">gradient_descent_2</span><span class="p">(</span><span class="n">grad_f_example_2</span><span class="p">,</span> <span class="n">x_y_initial</span><span class="p">,</span> <span class="n">learning_rate_2</span><span class="p">,</span> <span class="n">num_iterations_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gradient descent result: x_min, y_min =&quot;</span><span class="p">,</span> <span class="n">gd_example_2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">1.224</span>     <span class="mf">1.8640001</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.0804955</span> <span class="mf">1.5974296</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.9664763</span> <span class="mf">1.416231</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.872685</span>  <span class="mf">1.2802172</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.7935566</span> <span class="mf">1.1721154</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.72552466</span> <span class="mf">1.0828958</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.6661781</span> <span class="mf">1.0072521</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.6138146</span>  <span class="mf">0.94181013</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.5671893</span> <span class="mf">0.8842969</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.5253647</span>  <span class="mf">0.83311224</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.4876172</span>  <span class="mf">0.78708965</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.45337626</span> <span class="mf">0.74535424</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.42218375</span> <span class="mf">0.70723426</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.39366573</span> <span class="mf">0.67220336</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.3675127</span>  <span class="mf">0.63984215</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.34346518</span> <span class="mf">0.6098113</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.32130316</span> <span class="mf">0.58183277</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.3008382</span> <span class="mf">0.555676</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.2819075</span> <span class="mf">0.5311478</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.26436916</span> <span class="mf">0.5080848</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.24809869</span> <span class="mf">0.48634768</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.23298606</span> <span class="mf">0.46581665</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.21893358</span> <span class="mf">0.446388</span>  <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.20585394</span> <span class="mf">0.42797133</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.19366881</span> <span class="mf">0.41048738</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.18230762</span> <span class="mf">0.39386624</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.17170653</span> <span class="mf">0.37804592</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.16180763</span> <span class="mf">0.36297116</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.1525582</span> <span class="mf">0.3485925</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.14391015</span> <span class="mf">0.3348654</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.13581954</span> <span class="mf">0.3217497</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.12824605</span> <span class="mf">0.30920893</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.12115271</span> <span class="mf">0.2972099</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.11450549</span> <span class="mf">0.28572226</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.10827309</span> <span class="mf">0.27471823</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.10242663</span> <span class="mf">0.26417223</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.09693947</span> <span class="mf">0.25406063</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.091787</span>   <span class="mf">0.24436162</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.08694644</span> <span class="mf">0.23505495</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.08239673</span> <span class="mf">0.22612175</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.07811836</span> <span class="mf">0.21754445</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.07409324</span> <span class="mf">0.20930661</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.07030462</span> <span class="mf">0.20139283</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.06673691</span> <span class="mf">0.19378866</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.06337569</span> <span class="mf">0.1864805</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.06020753</span> <span class="mf">0.17945556</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.05721997</span> <span class="mf">0.17270173</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.05440142</span> <span class="mf">0.16620758</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.05174111</span> <span class="mf">0.15996228</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.04922901</span> <span class="mf">0.15395558</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.04685579</span> <span class="mf">0.14817773</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.04461276</span> <span class="mf">0.14261946</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.04249183</span> <span class="mf">0.13727196</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.04048547</span> <span class="mf">0.13212684</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.03858665</span> <span class="mf">0.12717609</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.03678881</span> <span class="mf">0.12241207</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.03508585</span> <span class="mf">0.11782748</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.03347206</span> <span class="mf">0.11341536</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.03194214</span> <span class="mf">0.10916902</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0304911</span>  <span class="mf">0.10508209</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.02911432</span> <span class="mf">0.10114844</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.02780745</span> <span class="mf">0.09736223</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.02656644</span> <span class="mf">0.09371783</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.02538751</span> <span class="mf">0.09020985</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.02426712</span> <span class="mf">0.08683313</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.02320194</span> <span class="mf">0.0835827</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.02218887</span> <span class="mf">0.08045381</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.021225</span>   <span class="mf">0.07744186</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.02030761</span> <span class="mf">0.07454248</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01943415</span> <span class="mf">0.07175142</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01860221</span> <span class="mf">0.06906464</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01780957</span> <span class="mf">0.06647822</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01705409</span> <span class="mf">0.06398842</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01633382</span> <span class="mf">0.06159163</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01564688</span> <span class="mf">0.05928436</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01499153</span> <span class="mf">0.05706327</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01436612</span> <span class="mf">0.05492516</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01376912</span> <span class="mf">0.05286692</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01319907</span> <span class="mf">0.05088559</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0126546</span>  <span class="mf">0.04897829</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01213441</span> <span class="mf">0.04714226</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0116373</span>  <span class="mf">0.04537486</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01116211</span> <span class="mf">0.04367352</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01070777</span> <span class="mf">0.04203578</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.01027326</span> <span class="mf">0.04045928</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00985761</span> <span class="mf">0.03894174</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00945992</span> <span class="mf">0.03748095</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00907932</span> <span class="mf">0.03607481</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.008715</span>   <span class="mf">0.03472127</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0083662</span>  <span class="mf">0.03341838</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00803218</span> <span class="mf">0.03216426</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00771226</span> <span class="mf">0.03095707</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00740579</span> <span class="mf">0.02979508</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00711214</span> <span class="mf">0.0286766</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00683074</span> <span class="mf">0.0276</span>    <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00656102</span> <span class="mf">0.02656373</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00630246</span> <span class="mf">0.02556628</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00605456</span> <span class="mf">0.0246062</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00581685</span> <span class="mf">0.02368209</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00558886</span> <span class="mf">0.02279262</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00537018</span> <span class="mf">0.02193649</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0051604</span>  <span class="mf">0.02111245</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00495912</span> <span class="mf">0.02031931</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00476598</span> <span class="mf">0.01955591</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00458063</span> <span class="mf">0.01882114</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00440273</span> <span class="mf">0.01811393</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00423197</span> <span class="mf">0.01743324</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00406804</span> <span class="mf">0.0167781</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00391064</span> <span class="mf">0.01614754</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00375952</span> <span class="mf">0.01554064</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0036144</span>  <span class="mf">0.01495652</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00347502</span> <span class="mf">0.01439432</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00334116</span> <span class="mf">0.01385323</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00321259</span> <span class="mf">0.01333245</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00308907</span> <span class="mf">0.01283122</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00297042</span> <span class="mf">0.01234881</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00285642</span> <span class="mf">0.01188452</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00274688</span> <span class="mf">0.01143767</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00264164</span> <span class="mf">0.0110076</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0025405</span>  <span class="mf">0.01059368</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0024433</span>  <span class="mf">0.01019531</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00234989</span> <span class="mf">0.00981191</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00226011</span> <span class="mf">0.00944292</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00217381</span> <span class="mf">0.00908778</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00209086</span> <span class="mf">0.008746</span>  <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00201113</span> <span class="mf">0.00841705</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00193448</span> <span class="mf">0.00810047</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00186079</span> <span class="mf">0.00779579</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00178994</span> <span class="mf">0.00750255</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00172182</span> <span class="mf">0.00722034</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00165633</span> <span class="mf">0.00694874</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00159336</span> <span class="mf">0.00668735</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0015328</span>  <span class="mf">0.00643579</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00147458</span> <span class="mf">0.00619368</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00141858</span> <span class="mf">0.00596067</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00136474</span> <span class="mf">0.00573643</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00131295</span> <span class="mf">0.00552062</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00126315</span> <span class="mf">0.00531292</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00121526</span> <span class="mf">0.00511303</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00116919</span> <span class="mf">0.00492066</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00112489</span> <span class="mf">0.00473553</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00108227</span> <span class="mf">0.00455735</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00104128</span> <span class="mf">0.00438588</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00100186</span> <span class="mf">0.00422086</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00096393</span> <span class="mf">0.00406204</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00092746</span> <span class="mf">0.0039092</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00089237</span> <span class="mf">0.00376211</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00085861</span> <span class="mf">0.00362055</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00082614</span> <span class="mf">0.00348431</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0007949</span> <span class="mf">0.0033532</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00076485</span> <span class="mf">0.00322702</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00073595</span> <span class="mf">0.00310559</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00070813</span> <span class="mf">0.00298872</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00068138</span> <span class="mf">0.00287626</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00065564</span> <span class="mf">0.00276802</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00063088</span> <span class="mf">0.00266386</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00060705</span> <span class="mf">0.00256361</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00058413</span> <span class="mf">0.00246714</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00056208</span> <span class="mf">0.00237429</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00054086</span> <span class="mf">0.00228494</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00052044</span> <span class="mf">0.00219895</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0005008</span> <span class="mf">0.0021162</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0004819</span>  <span class="mf">0.00203656</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00046372</span> <span class="mf">0.00195992</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00044623</span> <span class="mf">0.00188616</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00042939</span> <span class="mf">0.00181517</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0004132</span>  <span class="mf">0.00174686</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00039761</span> <span class="mf">0.00168112</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00038262</span> <span class="mf">0.00161785</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00036819</span> <span class="mf">0.00155696</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00035431</span> <span class="mf">0.00149837</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00034095</span> <span class="mf">0.00144198</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00032809</span> <span class="mf">0.00138771</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00031572</span> <span class="mf">0.00133548</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00030382</span> <span class="mf">0.00128522</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00029237</span> <span class="mf">0.00123685</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00028135</span> <span class="mf">0.0011903</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00027075</span> <span class="mf">0.0011455</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00026054</span> <span class="mf">0.00110239</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00025073</span> <span class="mf">0.0010609</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00024128</span> <span class="mf">0.00102097</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00023219</span> <span class="mf">0.00098254</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00022344</span> <span class="mf">0.00094556</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00021502</span> <span class="mf">0.00090997</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00020692</span> <span class="mf">0.00087573</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00019912</span> <span class="mf">0.00084277</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00019162</span> <span class="mf">0.00081105</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.0001844</span>  <span class="mf">0.00078052</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00017746</span> <span class="mf">0.00075114</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00017077</span> <span class="mf">0.00072287</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00016434</span> <span class="mf">0.00069567</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00015815</span> <span class="mf">0.00066948</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00015219</span> <span class="mf">0.00064428</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00014646</span> <span class="mf">0.00062004</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00014094</span> <span class="mf">0.0005967</span> <span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00013564</span> <span class="mf">0.00057424</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00013053</span> <span class="mf">0.00055263</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00012561</span> <span class="mf">0.00053183</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00012088</span> <span class="mf">0.00051181</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00011633</span> <span class="mf">0.00049255</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00011195</span> <span class="mf">0.00047401</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00010773</span> <span class="mf">0.00045617</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.00010368</span> <span class="mf">0.000439</span>  <span class="p">]</span>
+<span class="p">[</span><span class="mf">9.9772391e-05</span> <span class="mf">4.2247464e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">9.6015516e-05</span> <span class="mf">4.0657338e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">9.2400165e-05</span> <span class="mf">3.9127062e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">8.8921006e-05</span> <span class="mf">3.7654382e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">8.557290e-05</span> <span class="mf">3.623713e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">8.235090e-05</span> <span class="mf">3.487322e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.9250269e-05</span> <span class="mf">3.3560643e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.626642e-05</span> <span class="mf">3.229747e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.3394949e-05</span> <span class="mf">3.1081837e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.063163e-05</span> <span class="mf">2.991196e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.7972374e-05</span> <span class="mf">2.8786113e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.5413275e-05</span> <span class="mf">2.7702641e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.295055e-05</span> <span class="mf">2.665995e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.0580569e-05</span> <span class="mf">2.5656502e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.8299836e-05</span> <span class="mf">2.4690822e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.610499e-05</span> <span class="mf">2.376149e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.3992793e-05</span> <span class="mf">2.2867137e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.1960134e-05</span> <span class="mf">2.2006445e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.0004015e-05</span> <span class="mf">2.1178149e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.8121550e-05</span> <span class="mf">2.0381027e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.6309968e-05</span> <span class="mf">1.9613908e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.4566597e-05</span> <span class="mf">1.8875662e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.2888871e-05</span> <span class="mf">1.8165202e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.1274314e-05</span> <span class="mf">1.7481484e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.9720548e-05</span> <span class="mf">1.6823498e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.8225280e-05</span> <span class="mf">1.6190279e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.6786310e-05</span> <span class="mf">1.5580893e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.5401517e-05</span> <span class="mf">1.4994443e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.4068860e-05</span> <span class="mf">1.4430068e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.2786378e-05</span> <span class="mf">1.3886933e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.1552179e-05</span> <span class="mf">1.3364243e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.0364447e-05</span> <span class="mf">1.2861226e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.9221428e-05</span> <span class="mf">1.2377142e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.81214416e-05</span> <span class="mf">1.19112774e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.7062868e-05</span> <span class="mf">1.1462948e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.6044147e-05</span> <span class="mf">1.1031493e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.5063775e-05</span> <span class="mf">1.0616278e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.4120311e-05</span> <span class="mf">1.0216691e-04</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.3212364e-05</span> <span class="mf">9.8321434e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.2338598e-05</span> <span class="mf">9.4620700e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.1497726e-05</span> <span class="mf">9.1059257e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.0688509e-05</span> <span class="mf">8.7631866e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.9909754e-05</span> <span class="mf">8.4333478e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.9160316e-05</span> <span class="mf">8.1159240e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.8439088e-05</span> <span class="mf">7.8104473e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.7745011e-05</span> <span class="mf">7.5164688e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.7077062e-05</span> <span class="mf">7.2335548e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.6434256e-05</span> <span class="mf">6.9612899e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.5815649e-05</span> <span class="mf">6.6992725e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.5220328e-05</span> <span class="mf">6.4471176e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.4647418e-05</span> <span class="mf">6.2044535e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.4096073e-05</span> <span class="mf">5.9709229e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.3565483e-05</span> <span class="mf">5.7461821e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.3054865e-05</span> <span class="mf">5.5299002e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.2563469e-05</span> <span class="mf">5.3217591e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.2090570e-05</span> <span class="mf">5.1214523e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.1635472e-05</span> <span class="mf">4.9286849e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.1197505e-05</span> <span class="mf">4.7431731e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.0776024e-05</span> <span class="mf">4.5646437e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.0370409e-05</span> <span class="mf">4.3928339e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">9.980061e-06</span> <span class="mf">4.227491e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">9.6044068e-06</span> <span class="mf">4.0683713e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">9.2428927e-06</span> <span class="mf">3.9152408e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">8.894986e-06</span> <span class="mf">3.767874e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">8.560176e-06</span> <span class="mf">3.626054e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">8.237968e-06</span> <span class="mf">3.489572e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.927889e-06</span> <span class="mf">3.358227e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.6294818e-06</span> <span class="mf">3.2318258e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.3423071e-06</span> <span class="mf">3.1101823e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.0659416e-06</span> <span class="mf">2.9931172e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.7999790e-06</span> <span class="mf">2.8804585e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.5440272e-06</span> <span class="mf">2.7720402e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.2977097e-06</span> <span class="mf">2.6677026e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.0606640e-06</span> <span class="mf">2.5672922e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.8325409e-06</span> <span class="mf">2.4706611e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.6130043e-06</span> <span class="mf">2.3776673e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.4017314e-06</span> <span class="mf">2.2881735e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.1984107e-06</span> <span class="mf">2.2020484e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.0027429e-06</span> <span class="mf">2.1191649e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.814440e-06</span> <span class="mf">2.039401e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.6332257e-06</span> <span class="mf">1.9626395e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.4588319e-06</span> <span class="mf">1.8887671e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.2910024e-06</span> <span class="mf">1.8176752e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.1294902e-06</span> <span class="mf">1.7492592e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.9740571e-06</span> <span class="mf">1.6834183e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.8244748e-06</span> <span class="mf">1.6200556e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.6805227e-06</span> <span class="mf">1.5590778e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.5419889e-06</span> <span class="mf">1.5003952e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.4086695e-06</span> <span class="mf">1.4439214e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.2803682e-06</span> <span class="mf">1.3895732e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.1568964e-06</span> <span class="mf">1.3372706e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.0380718e-06</span> <span class="mf">1.2869367e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.9237199e-06</span> <span class="mf">1.2384973e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.8136722e-06</span> <span class="mf">1.1918812e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.7077667e-06</span> <span class="mf">1.1470196e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.6058474e-06</span> <span class="mf">1.1038466e-05</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.5077643e-06</span> <span class="mf">1.0622986e-05</span><span class="p">]</span>
+<span class="n">Gradient</span> <span class="n">descent</span> <span class="n">result</span><span class="p">:</span> <span class="n">x_min</span><span class="p">,</span> <span class="n">y_min</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5077643e-06</span> <span class="mf">1.0622986e-05</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../genetic_algorithm/genetic_algorithm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Genetic Algorithm Basics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../computer_vision/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Computer Vision</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-in-one-variable">Function in One Variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-in-two-variables">Function in Two Variables</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/notebooks/optimization/optimization_using_newton_method/optimization_using_newton_method.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, cornel @ AI Learning Labs.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

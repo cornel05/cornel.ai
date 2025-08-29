@@ -1,0 +1,1370 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python &amp; NumPy 1D, 2D, 3D Lists &#8212; AI Learning Labs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/landing_page.css?v=9204f5bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/date.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/footer.css?v=7252cef9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/python_snippets/python_numpy_1d_2d_3d_list/python_numpy_1d_2d_3d_list';</script>
+    <link rel="icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="NumPy ND Arrays" href="../numpy_nd_array/numpy_nd_array.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">cornel.ai</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
+    Classification
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../regression/index.html">
+    Regression
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../optimization/index.html">
+    Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
+    Computer Vision
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../pandas/index.html">
+    Pandas
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Python Snippets
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/dcornel05" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/cornel-ai" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
+    Classification
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../regression/index.html">
+    Regression
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../optimization/index.html">
+    Optimization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
+    Computer Vision
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../pandas/index.html">
+    Pandas
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Python Snippets
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/dcornel05" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/cornel-ai" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Snippets</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_1d_2d_list/python_1d_2d_list.html">Python 1D, 2D Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy_nd_array/numpy_nd_array.html">NumPy ND Arrays</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python &amp; NumPy 1D, 2D, 3D Lists</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Python Snippets</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Python...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-numpy-1d-2d-3d-lists">
+<h1>Python &amp; NumPy 1D, 2D, 3D Lists<a class="headerlink" href="#python-numpy-1d-2d-3d-lists" title="Link to this heading">#</a></h1>
+<section id="python-1d-2d-lists">
+<h2>Python 1D &amp; 2D Lists<a class="headerlink" href="#python-1d-2d-lists" title="Link to this heading">#</a></h2>
+<section id="basic">
+<h3>Basic<a class="headerlink" href="#basic" title="Link to this heading">#</a></h3>
+<section id="exercise-1-sum-of-diagonal-elements-of-a-2d-list">
+<h4>Exercise 1: Sum of diagonal Elements of a 2D List<a class="headerlink" href="#exercise-1-sum-of-diagonal-elements-of-a-2d-list" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">diagonal_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="c1"># Check if the matrix is square</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">matrix</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The matrix must be square.&quot;</span><span class="p">)</span>
+    <span class="c1"># Calculate the sum of the main diagonal</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">))])</span>
+
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diagonal_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span>  <span class="c1"># Output: 15</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-2-sort-a-2d-matrix-by-the-sum-of-its-rows">
+<h4>Exercise 2: Sort a 2D matrix by the sum of its rows<a class="headerlink" href="#exercise-2-sort-a-2d-matrix-by-the-sum-of-its-rows" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sort_matrix_by_row_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sort_matrix_by_row_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-3-inventory-management">
+<h4>Exercise 3: Inventory Management<a class="headerlink" href="#exercise-3-inventory-management" title="Link to this heading">#</a></h4>
+<p>A company has a list of inventory items for various products. The inventory information includes the product name, quantity in stock, and the selling price of each product. The company wants to calculate the total value of its inventory.</p>
+<p>The company’s inventory list is represented by a matrix of size nx3, where n is the number of different products. The columns in the matrix represent the product name, quantity in stock, and selling price of each product.</p>
+<p>For example, the inventory matrix might look like this:
+Inventory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>    <span class="n">Name</span>    <span class="o">|</span> <span class="n">Quantity</span> <span class="o">|</span> <span class="n">Price</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="n">Product</span> <span class="mi">1</span> <span class="o">|</span>    <span class="mi">10</span>    <span class="o">|</span>   <span class="mf">5.0</span>   <span class="o">|</span>
+<span class="o">|</span>  <span class="n">Product</span> <span class="mi">2</span> <span class="o">|</span>    <span class="mi">5</span>     <span class="o">|</span>   <span class="mf">2.5</span>   <span class="o">|</span>
+<span class="o">|</span>  <span class="n">Product</span> <span class="mi">3</span> <span class="o">|</span>    <span class="mi">3</span>     <span class="o">|</span>   <span class="mf">8.0</span>   <span class="o">|</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Calculate the total quantity of inventory for all products.</p></li>
+<li><p>Calculate the inventory value of each product by multiplying the quantity with the selling price of the corresponding product.</p></li>
+<li><p>Calculate the total value of the entire inventory.</p></li>
+</ul>
+<p>Write equations or code to solve each of the above exercises.</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inventory matrix</span>
+<span class="n">inventory</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Product 2&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Product 3&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">]]</span>
+
+<span class="c1"># Calculate the total quantity of inventory for all products</span>
+<span class="n">total_quantity</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total inventory quantity:&quot;</span><span class="p">,</span> <span class="n">total_quantity</span><span class="p">)</span>
+
+<span class="c1"># Calculate the inventory value of each product</span>
+<span class="n">product_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">item</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inventory value of each product:&quot;</span><span class="p">,</span> <span class="n">product_values</span><span class="p">)</span>
+
+<span class="c1"># Calculate the total value of the entire inventory</span>
+<span class="n">total_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">product_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total inventory value:&quot;</span><span class="p">,</span> <span class="n">total_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Total</span> <span class="n">inventory</span> <span class="n">quantity</span><span class="p">:</span> <span class="mi">18</span>
+<span class="n">Inventory</span> <span class="n">value</span> <span class="n">of</span> <span class="n">each</span> <span class="n">product</span><span class="p">:</span> <span class="p">[</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">,</span> <span class="mf">24.0</span><span class="p">]</span>
+<span class="n">Total</span> <span class="n">inventory</span> <span class="n">value</span><span class="p">:</span> <span class="mf">86.5</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section id="python-3d-list">
+<h2>Python 3D List<a class="headerlink" href="#python-3d-list" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Basic<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="exercise-1-find-maximum-value-in-a-3d-list">
+<h4>Exercise 1: Find maximum value in a 3D list<a class="headerlink" href="#exercise-1-find-maximum-value-in-a-3d-list" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_max</span><span class="p">(</span><span class="n">list_3d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">list_1d</span><span class="p">)</span> <span class="k">for</span> <span class="n">list_2d</span> <span class="ow">in</span> <span class="n">list_3d</span> <span class="k">for</span> <span class="n">list_1d</span> <span class="ow">in</span> <span class="n">list_2d</span> <span class="k">if</span> <span class="n">list_1d</span><span class="p">)</span>
+
+
+<span class="n">list_3d</span> <span class="o">=</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">find_max</span><span class="p">(</span><span class="n">list_3d</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-2-flatten-a-3d-list-into-a-1d-list">
+<h4>Exercise 2: Flatten a 3D list into a 1D list<a class="headerlink" href="#exercise-2-flatten-a-3d-list-into-a-1d-list" title="Link to this heading">#</a></h4>
+<section id="solution-1-using-loops">
+<h5>Solution 1: Using Loops<a class="headerlink" href="#solution-1-using-loops" title="Link to this heading">#</a></h5>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use 3 nested loops to flatten the 3D list</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">flatten_3d_list</span><span class="p">(</span><span class="n">list_3d</span><span class="p">):</span>
+    <span class="c1"># Initialize an empty list to hold the flattened elements</span>
+    <span class="n">flat_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Iterate through each 2D list in the 3D list</span>
+    <span class="k">for</span> <span class="n">list_2d</span> <span class="ow">in</span> <span class="n">list_3d</span><span class="p">:</span>
+        <span class="c1"># Iterate through each 1D list in the 2D list</span>
+        <span class="k">for</span> <span class="n">list_1d</span> <span class="ow">in</span> <span class="n">list_2d</span><span class="p">:</span>
+            <span class="c1"># Iterate through each item in the 1D list and append it to the flat_list</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">list_1d</span><span class="p">:</span>
+                <span class="n">flat_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">flat_list</span>
+
+
+<span class="n">list_3d</span> <span class="o">=</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flatten_3d_list</span><span class="p">(</span><span class="n">list_3d</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="solution-2-using-list-comprehension">
+<h5>Solution 2: Using List Comprehension<a class="headerlink" href="#solution-2-using-list-comprehension" title="Link to this heading">#</a></h5>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">flatten_3d_list</span><span class="p">(</span><span class="n">list_3d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">list_2d</span> <span class="ow">in</span> <span class="n">list_3d</span> <span class="k">for</span> <span class="n">list_1d</span> <span class="ow">in</span> <span class="n">list_2d</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">list_1d</span><span class="p">]</span>
+
+
+<span class="n">list_3d</span> <span class="o">=</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flatten_3d_list</span><span class="p">(</span><span class="n">list_3d</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="exercise-3-rotate-a-3d-list-matrix-90-degrees-clockwise">
+<h4>Exercise 3: Rotate a 3D list (matrix) 90 degrees clockwise<a class="headerlink" href="#exercise-3-rotate-a-3d-list-matrix-90-degrees-clockwise" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rotate_3d_clockwise</span><span class="p">(</span><span class="n">list_3d</span><span class="p">):</span>
+    <span class="c1"># zip(*list_3d) transposes the 3D list, and [list(reversed(x)) for x in ...] reverses each sublist to achieve a 90-degree clockwise rotation</span>
+    <span class="c1"># use * to unpack the list_3d for zip function, which groups elements from each sublist together</span>
+    <span class="c1"># if not using *, zip would treat the entire list_3d as a single argument, resulting in incorrect grouping</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">list_3d</span><span class="p">)]</span>
+
+
+<span class="n">list_3d</span> <span class="o">=</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rotate_3d_clockwise</span><span class="p">(</span><span class="n">list_3d</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section id="numpy-1d-2d-3d-list">
+<h2>Numpy 1D, 2D, 3D List<a class="headerlink" href="#numpy-1d-2d-3d-list" title="Link to this heading">#</a></h2>
+<p>Run this cell to load numpy:</p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="numpy-1d-list">
+<h3>Numpy 1D List<a class="headerlink" href="#numpy-1d-list" title="Link to this heading">#</a></h3>
+<section id="exercise-1-create-5-elements-array">
+<h4>Exercise 1: Create 5 elements array<a class="headerlink" href="#exercise-1-create-5-elements-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-2-sum-of-all-elements-in-a-1d-array">
+<h4>Exercise 2: Sum of all elements in a 1D array<a class="headerlink" href="#exercise-2-sum-of-all-elements-in-a-1d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">total_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">my_arr</span><span class="p">)</span>  <span class="c1"># renamed from &#39;sum&#39; to avoid shadowing</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-3-min-max">
+<h4>Exercise 3: Min/Max<a class="headerlink" href="#exercise-3-min-max" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">my_arr</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">my_arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-4-mean-median-of-a-1d-array">
+<h4>Exercise 4: Mean/Median of a 1D array<a class="headerlink" href="#exercise-4-mean-median-of-a-1d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">mean_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">my_arr</span><span class="p">)</span>
+<span class="n">median_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">my_arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_value</span><span class="p">,</span> <span class="n">median_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">3.0</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-5-sort-ascending-descending-order-a-1d-array">
+<h4>Exercise 5: Sort ascending/descending order a 1D array<a class="headerlink" href="#exercise-5-sort-ascending-descending-order-a-1d-array" title="Link to this heading">#</a></h4>
+<section id="solution-1-using-np-sort-and-slicing">
+<h5>Solution 1: Using np.sort() and slicing<a class="headerlink" href="#solution-1-using-np-sort-and-slicing" title="Link to this heading">#</a></h5>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">ascending</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">my_arr</span><span class="p">)</span>
+<span class="n">descending</span> <span class="o">=</span> <span class="n">ascending</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ascending</span><span class="p">,</span> <span class="n">descending</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="solution-2-using-np-sort-and-np-flip">
+<h5>Solution 2: Using np.sort() and np.flip()<a class="headerlink" href="#solution-2-using-np-sort-and-np-flip" title="Link to this heading">#</a></h5>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descending</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ascending</span><span class="p">,</span> <span class="n">descending</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="exercise-6-sum-of-elements-at-odd-even-indices-in-a-1d-array">
+<h4>Exercise 6: Sum of elements at odd/even indices in a 1D array<a class="headerlink" href="#exercise-6-sum-of-elements-at-odd-even-indices-in-a-1d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">sum_even_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">my_arr</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>   <span class="c1"># indices 0,2,4</span>
+<span class="n">sum_odd_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">my_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>    <span class="c1"># indices 1,3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_even_indices</span><span class="p">,</span> <span class="n">sum_odd_indices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-7-find-even-numbers-and-their-summation-in-a-1d-array">
+<h4>Exercise 7: Find even numbers and their summation in a 1D array<a class="headerlink" href="#exercise-7-find-even-numbers-and-their-summation-in-a-1d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">even</span> <span class="o">=</span> <span class="n">my_arr</span><span class="p">[</span><span class="n">my_arr</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">even_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">even</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_sum</span><span class="p">,</span> <span class="n">even</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">30</span> <span class="p">[</span> <span class="mi">2</span>  <span class="mi">4</span>  <span class="mi">6</span>  <span class="mi">8</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-8-sum-of-prime-numbers-in-a-1d-array">
+<h4>Exercise 8: Sum of prime numbers in a 1D array<a class="headerlink" href="#exercise-8-sum-of-prime-numbers-in-a-1d-array" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">np.vectorize()</span></code></p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">primes</span> <span class="o">=</span> <span class="n">my_arr</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">is_prime</span><span class="p">)(</span><span class="n">my_arr</span><span class="p">)]</span>
+<span class="n">primes_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">primes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">primes_sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">7</span><span class="p">]</span> <span class="mi">17</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-9-sum-of-positive-and-product-of-negative-numbers-in-a-1d-array">
+<h4>Exercise 9: Sum of positive and product of negative numbers in a 1D array<a class="headerlink" href="#exercise-9-sum-of-positive-and-product-of-negative-numbers-in-a-1d-array" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">np.sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.prod()</span></code></p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">positive_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">my_arr</span><span class="p">[</span><span class="n">my_arr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">negative_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">my_arr</span><span class="p">[</span><span class="n">my_arr</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># renamed from negative_sum</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">positive_sum</span><span class="p">,</span> <span class="n">negative_product</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span> <span class="o">-</span><span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-10-sum-of-elements-after-removing-duplicates-in-a-1d-array">
+<h4>Exercise 10: Sum of elements after removing duplicates in a 1D array<a class="headerlink" href="#exercise-10-sum-of-elements-after-removing-duplicates-in-a-1d-array" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">np.unique()</span></code></p>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
+<span class="n">unique_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique</span><span class="p">,</span> <span class="n">unique_sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span><span class="p">]</span> <span class="mi">36</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="numpy-2d-list">
+<h3>Numpy 2D List<a class="headerlink" href="#numpy-2d-list" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h4>Basic<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+</section>
+<section id="exercise-1-sum-of-elements-in-a-2d-array">
+<h4>Exercise 1: Sum of elements in a 2D array<a class="headerlink" href="#exercise-1-sum-of-elements-in-a-2d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">my_array</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-2-min-max-in-a-2d-array">
+<h4>Exercise 2: Min/Max in a 2D array<a class="headerlink" href="#exercise-2-min-max-in-a-2d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">my_array</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">my_array</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-3-mean-median-in-a-2d-array">
+<h4>Exercise 3: Mean/Median in a 2D array<a class="headerlink" href="#exercise-3-mean-median-in-a-2d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">my_array</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">my_array</span><span class="p">))</span>  <span class="c1"># added median</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">5.0</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-4-sort-rows-in-a-2d-array">
+<h4>Exercise 4: Sort rows in a 2D array<a class="headerlink" href="#exercise-4-sort-rows-in-a-2d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+<span class="n">ascending</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">my_array</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">descending</span> <span class="o">=</span> <span class="n">ascending</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># per-row descending</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">descending</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span> <span class="mi">3</span> <span class="mi">5</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">2</span> <span class="mi">4</span> <span class="mi">6</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="p">[[</span><span class="mi">9</span> <span class="mi">8</span> <span class="mi">7</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">6</span> <span class="mi">4</span> <span class="mi">2</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">5</span> <span class="mi">3</span> <span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-5-sum-of-each-row-and-sum-of-rows-sum-in-a-2d-array">
+<h4>Exercise 5: Sum of each row and sum of rows sum in a 2D array<a class="headerlink" href="#exercise-5-sum-of-each-row-and-sum-of-rows-sum-in-a-2d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="n">rows_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">my_array</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rows_sum_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rows_sum</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rows_sum</span><span class="p">,</span> <span class="n">rows_sum_sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mi">6</span> <span class="mi">15</span> <span class="mi">24</span><span class="p">]</span> <span class="mi">45</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-6-sum-of-each-column-and-sum-of-columns-sum-in-a-2d-array">
+<h4>Exercise 6: Sum of each column and sum of columns sum in a 2D array<a class="headerlink" href="#exercise-6-sum-of-each-column-and-sum-of-columns-sum-in-a-2d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="n">columns_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">my_array</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">total_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">columns_sum</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columns_sum</span><span class="p">,</span> <span class="n">total_sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">12</span> <span class="mi">15</span> <span class="mi">18</span><span class="p">]</span> <span class="mi">45</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="exercise-7-find-max-and-its-position-in-a-2d-array">
+<h4>Exercise 7: Find max and its position in a 2D array<a class="headerlink" href="#exercise-7-find-max-and-its-position-in-a-2d-array" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_scroll-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.unravel_index(np.argmax(my_array), my_array.shape) to get the 2D index of the max value</span>
+<span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
+<span class="n">max_value_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">my_array</span><span class="p">),</span> <span class="n">my_array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">max_value</span><span class="p">,</span> <span class="n">max_value_index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../numpy_nd_array/numpy_nd_array.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NumPy ND Arrays</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-1d-2d-lists">Python 1D &amp; 2D Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic">Basic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-sum-of-diagonal-elements-of-a-2d-list">Exercise 1: Sum of diagonal Elements of a 2D List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-sort-a-2d-matrix-by-the-sum-of-its-rows">Exercise 2: Sort a 2D matrix by the sum of its rows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-inventory-management">Exercise 3: Inventory Management</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-3d-list">Python 3D List</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Basic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-find-maximum-value-in-a-3d-list">Exercise 1: Find maximum value in a 3D list</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-flatten-a-3d-list-into-a-1d-list">Exercise 2: Flatten a 3D list into a 1D list</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1-using-loops">Solution 1: Using Loops</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2-using-list-comprehension">Solution 2: Using List Comprehension</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-rotate-a-3d-list-matrix-90-degrees-clockwise">Exercise 3: Rotate a 3D list (matrix) 90 degrees clockwise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-1d-2d-3d-list">Numpy 1D, 2D, 3D List</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-1d-list">Numpy 1D List</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-5-elements-array">Exercise 1: Create 5 elements array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-sum-of-all-elements-in-a-1d-array">Exercise 2: Sum of all elements in a 1D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-min-max">Exercise 3: Min/Max</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-mean-median-of-a-1d-array">Exercise 4: Mean/Median of a 1D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-sort-ascending-descending-order-a-1d-array">Exercise 5: Sort ascending/descending order a 1D array</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1-using-np-sort-and-slicing">Solution 1: Using np.sort() and slicing</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2-using-np-sort-and-np-flip">Solution 2: Using np.sort() and np.flip()</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-sum-of-elements-at-odd-even-indices-in-a-1d-array">Exercise 6: Sum of elements at odd/even indices in a 1D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-find-even-numbers-and-their-summation-in-a-1d-array">Exercise 7: Find even numbers and their summation in a 1D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-sum-of-prime-numbers-in-a-1d-array">Exercise 8: Sum of prime numbers in a 1D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-sum-of-positive-and-product-of-negative-numbers-in-a-1d-array">Exercise 9: Sum of positive and product of negative numbers in a 1D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-sum-of-elements-after-removing-duplicates-in-a-1d-array">Exercise 10: Sum of elements after removing duplicates in a 1D array</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-2d-list">Numpy 2D List</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Basic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-sum-of-elements-in-a-2d-array">Exercise 1: Sum of elements in a 2D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-min-max-in-a-2d-array">Exercise 2: Min/Max in a 2D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-mean-median-in-a-2d-array">Exercise 3: Mean/Median in a 2D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-sort-rows-in-a-2d-array">Exercise 4: Sort rows in a 2D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-sum-of-each-row-and-sum-of-rows-sum-in-a-2d-array">Exercise 5: Sum of each row and sum of rows sum in a 2D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-sum-of-each-column-and-sum-of-columns-sum-in-a-2d-array">Exercise 6: Sum of each column and sum of columns sum in a 2D array</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-find-max-and-its-position-in-a-2d-array">Exercise 7: Find max and its position in a 2D array</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/notebooks/python_snippets/python_numpy_1d_2d_3d_list/python_numpy_1d_2d_3d_list.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, cornel @ AI Learning Labs.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

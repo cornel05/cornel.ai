@@ -1,0 +1,33 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "8daa7507",
+   "metadata": {},
+   "source": [
+    "# Basic Pandas for Data Science"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "33d5fbdc",
+   "metadata": {},
+   "source": [
+    "## Manually Create a DataFrame"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.13 (WSL code-venv)",
+   "language": "python",
+   "name": "wsl-code-venv"
+  },
+  "language_info": {
+   "name": "python",
+   "version": "3.12.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

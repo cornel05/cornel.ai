@@ -1,0 +1,37 @@
+.intro-card .sd-card-title {
+    color: var(--pst-color-primary);
+    font-size: var(--pst-font-size-h5);
+    padding: 1rem 0rem 0.5rem 0rem;
+}
+
+.intro-card .sd-btn-secondary {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  background-color: rgb(108, 117, 125);
+  border-bottom-color: rgb(108, 117, 125);
+  border-bottom-style: solid;
+  border-bottom-width: 0.8px;
+  border-left-color: rgb(108, 117, 125);
+  border-left-style: solid;
+  border-left-width: 0.8px;
+  border-radius: 4px;
+  border-right-color: rgb(108, 117, 125);
+  border-right-style: solid;
+  border-right-width: 0.8px;
+  border-top-color: rgb(108, 117, 125);
+  border-top-style: solid;
+  border-top-width: 0.8px;
+  color: rgb(20, 24, 30);
+  line-height: 24px;
+  text-decoration-color: rgb(20, 24, 30);
+
+  /* Center horizontally */
+  display: block;          /* or inline-flex */
+  width: fit-content;      /* shrink to content */
+  margin: 0 auto;  /* auto left/right centers */
+  text-align: center;
+}
+
+html {
+    font-size: 18px; /* Increase base font size */
+}
