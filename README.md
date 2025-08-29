@@ -1,7 +1,7 @@
 # AI Learning Labs
 
 [![Read the Book](https://img.shields.io/badge/Read%20the%20Book-live-brightgreen.svg)](https://cornel05.github.io/cornel.ai/)
-[![Build](https://github.com/cornel05/AI-Learning-Labs/actions/workflows/jupyter-book.yml/badge.svg)](https://github.com/cornel05/cornel.ai/actions)
+[![Build](https://github.com/cornel05/cornel.ai/actions/workflows/pages.yml/badge.svg)](https://github.com/cornel05/cornel.ai/actions)
 
 Explore the notebooks with a clean, nbviewer-like UI:
 
