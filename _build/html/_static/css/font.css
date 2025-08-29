@@ -42,3 +42,9 @@ h6 {
     font-weight: 450 !important;
   }
 }
+
+:root {
+  --pst-font-family-base: "JetBrains Mono", monospace;
+  --pst-font-family-heading: "JetBrains Mono", monospace;
+  --pst-font-family-monospace: "Fira Code", monospace;
+}
