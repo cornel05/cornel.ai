@@ -23,6 +23,8 @@ html_css_files = [
     "css/date.css",
     "css/footer.css",
     "css/font.css",
+    "https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap",
+    "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap",
 ]
 html_context = {
     "default_mode": "light",
