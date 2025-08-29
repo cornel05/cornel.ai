@@ -123,3 +123,30 @@ Welcome 👋 — hands-on notebooks for **Classification**, **Regression**, **Op
    notebooks/computer_vision/index.rst
    notebooks/pandas/index.rst
    notebooks/python_snippets/index.rst
+
+.. toctree::
+    :maxdepth: 1
+    :caption: My Github Profile:
+    
+    GitHub: cornel05 <https://github.com/cornel05>
+
+.. toctree::
+    :maxdepth: 1
+    :caption: My Second Page (still under development):
+    
+    cornel05.github.io <https://cornel05.github.io/>
+
+.. toctree::
+    :maxdepth: 1
+    :caption: See Also:
+    :hidden:
+    
+    scikit-learn <https://scikit-learn.org/>
+    PyTorch <https://pytorch.org/>
+    TensorFlow <https://www.tensorflow.org/>
+    pandas <https://pandas.pydata.org/>
+    NumPy <https://numpy.org/>
+    Matplotlib <https://matplotlib.org/>
+    Seaborn <https://seaborn.pydata.org/>
+    Hugging Face <https://huggingface.co/>
+    Kaggle <https://www.kaggle.com/>
