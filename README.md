@@ -10,7 +10,7 @@ Explore the notebooks with a clean, nbviewer-like UI:
 - 🧮 **Optimization** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/optimization/index.html)
 - 👁️ **Computer Vision** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/computer_vision/index.html)
 - 🐼 **Pandas** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/pandas/index.html)
-- 🐍 **Python Snippets** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/snippets/index.html)
+- 🧑‍💻 **Coding Snippets** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/snippets/index.html)
 
 > The site rebuilds automatically on every push to `main`.
 

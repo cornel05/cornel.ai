@@ -5,19 +5,8 @@ Great analysis often comes down to small, reusable patterns: efficient loops, cl
 
 .. toctree::
    :maxdepth: 1
-   :caption: Python
+   :caption: Snippet Categories
 
-   python/python_1d_2d_list/python_1d_2d_list.ipynb
-
-.. toctree::
-   :maxdepth: 1
-   :caption: NumPy
-
-   numpy/numpy_nd_array/numpy_nd_array.ipynb
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Pandas
-
-   pandas/basic_pandas/basic_pandas_1.ipynb
-   pandas/basic_pandas/basic_pandas_2.ipynb
+   python/index.rst
+   numpy/index.rst
+   pandas/index.rst
