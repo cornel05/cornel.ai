@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/landing_page.css?v=2ed7ac62" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/date.css?v=7762d749" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/footer.css?v=7252cef9" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/font.css?v=fec259cc" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/font.css?v=4865eef6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/page_width.css?v=56ac70b4" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
   
@@ -662,13 +662,20 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+<section id="dataset-import">
+<h2>Dataset Import<a class="headerlink" href="#dataset-import" title="Link to this heading">#</a></h2>
+<p>The dataset used in this notebook is from <a class="reference external" href="https://www.kaggle.com/datasets/abcsds/pokemon">Kaggle - Pokemon</a>.</p>
+</section>
 <section id="manually-create-a-dataframe">
 <h2>Manually Create a DataFrame<a class="headerlink" href="#manually-create-a-dataframe" title="Link to this heading">#</a></h2>
+<p>From a Dictionary<br />
+The columns order is the order of keys insertion:</p>
 <div class="cell tag_hide_output tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Column 1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">],</span> <span class="s1">&#39;Column 2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">]})</span>
@@ -714,6 +721,704 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<p>From a list of random values w/ column names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcdefgh&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+      <th>f</th>
+      <th>g</th>
+      <th>h</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.896989</td>
+      <td>0.828643</td>
+      <td>0.840180</td>
+      <td>0.915293</td>
+      <td>0.015455</td>
+      <td>0.537308</td>
+      <td>0.159890</td>
+      <td>0.036243</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.853145</td>
+      <td>0.820541</td>
+      <td>0.484513</td>
+      <td>0.578945</td>
+      <td>0.210457</td>
+      <td>0.256412</td>
+      <td>0.211360</td>
+      <td>0.114042</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.344668</td>
+      <td>0.404570</td>
+      <td>0.672889</td>
+      <td>0.540809</td>
+      <td>0.494076</td>
+      <td>0.234354</td>
+      <td>0.630560</td>
+      <td>0.838077</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.869002</td>
+      <td>0.615523</td>
+      <td>0.237715</td>
+      <td>0.483252</td>
+      <td>0.958088</td>
+      <td>0.565652</td>
+      <td>0.674273</td>
+      <td>0.214110</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From a dictionary including Series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From numpy ndarray:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]),</span>
+                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From a numpy ndarray that has labeled columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">)])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>c</th>
+      <th>a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From Series/DataFrame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ser</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hehe&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hehe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>c</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we construct from DataFrame, then the columns in the new DataFrame must be a subset of the original columns. If not, the new columns will be filled with NaN.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0
+c  3
+a  1 
+     z
+c NaN
+a NaN
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reverse-row-column-order">
+<h2>Reverse Row/Column Order<a class="headerlink" href="#reverse-row-column-order" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>Name</th>
+      <th>Type 1</th>
+      <th>Type 2</th>
+      <th>Total</th>
+      <th>HP</th>
+      <th>Attack</th>
+      <th>Defense</th>
+      <th>Sp. Atk</th>
+      <th>Sp. Def</th>
+      <th>Speed</th>
+      <th>Generation</th>
+      <th>Legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Bulbasaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>318</td>
+      <td>45</td>
+      <td>49</td>
+      <td>49</td>
+      <td>65</td>
+      <td>65</td>
+      <td>45</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Ivysaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>405</td>
+      <td>60</td>
+      <td>62</td>
+      <td>63</td>
+      <td>80</td>
+      <td>80</td>
+      <td>60</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Venusaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>525</td>
+      <td>80</td>
+      <td>82</td>
+      <td>83</td>
+      <td>100</td>
+      <td>100</td>
+      <td>80</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>VenusaurMega Venusaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>625</td>
+      <td>80</td>
+      <td>100</td>
+      <td>123</td>
+      <td>122</td>
+      <td>120</td>
+      <td>80</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Charmander</td>
+      <td>Fire</td>
+      <td>NaN</td>
+      <td>309</td>
+      <td>39</td>
+      <td>52</td>
+      <td>43</td>
+      <td>60</td>
+      <td>50</td>
+      <td>65</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="row">
+<h3>Row<a class="headerlink" href="#row" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>Name</th>
+      <th>Type 1</th>
+      <th>Type 2</th>
+      <th>Total</th>
+      <th>HP</th>
+      <th>Attack</th>
+      <th>Defense</th>
+      <th>Sp. Atk</th>
+      <th>Sp. Def</th>
+      <th>Speed</th>
+      <th>Generation</th>
+      <th>Legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>799</th>
+      <td>721</td>
+      <td>Volcanion</td>
+      <td>Fire</td>
+      <td>Water</td>
+      <td>600</td>
+      <td>80</td>
+      <td>110</td>
+      <td>120</td>
+      <td>130</td>
+      <td>90</td>
+      <td>70</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>798</th>
+      <td>720</td>
+      <td>HoopaHoopa Unbound</td>
+      <td>Psychic</td>
+      <td>Dark</td>
+      <td>680</td>
+      <td>80</td>
+      <td>160</td>
+      <td>60</td>
+      <td>170</td>
+      <td>130</td>
+      <td>80</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>797</th>
+      <td>720</td>
+      <td>HoopaHoopa Confined</td>
+      <td>Psychic</td>
+      <td>Ghost</td>
+      <td>600</td>
+      <td>80</td>
+      <td>110</td>
+      <td>60</td>
+      <td>150</td>
+      <td>130</td>
+      <td>70</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>796</th>
+      <td>719</td>
+      <td>DiancieMega Diancie</td>
+      <td>Rock</td>
+      <td>Fairy</td>
+      <td>700</td>
+      <td>50</td>
+      <td>160</td>
+      <td>110</td>
+      <td>160</td>
+      <td>110</td>
+      <td>110</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>795</th>
+      <td>719</td>
+      <td>Diancie</td>
+      <td>Rock</td>
+      <td>Fairy</td>
+      <td>600</td>
+      <td>50</td>
+      <td>100</td>
+      <td>150</td>
+      <td>100</td>
+      <td>150</td>
+      <td>50</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>See more about <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.reset_index.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>Name</th>
+      <th>Type 1</th>
+      <th>Type 2</th>
+      <th>Total</th>
+      <th>HP</th>
+      <th>Attack</th>
+      <th>Defense</th>
+      <th>Sp. Atk</th>
+      <th>Sp. Def</th>
+      <th>Speed</th>
+      <th>Generation</th>
+      <th>Legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>721</td>
+      <td>Volcanion</td>
+      <td>Fire</td>
+      <td>Water</td>
+      <td>600</td>
+      <td>80</td>
+      <td>110</td>
+      <td>120</td>
+      <td>130</td>
+      <td>90</td>
+      <td>70</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>720</td>
+      <td>HoopaHoopa Unbound</td>
+      <td>Psychic</td>
+      <td>Dark</td>
+      <td>680</td>
+      <td>80</td>
+      <td>160</td>
+      <td>60</td>
+      <td>170</td>
+      <td>130</td>
+      <td>80</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>720</td>
+      <td>HoopaHoopa Confined</td>
+      <td>Psychic</td>
+      <td>Ghost</td>
+      <td>600</td>
+      <td>80</td>
+      <td>110</td>
+      <td>60</td>
+      <td>150</td>
+      <td>130</td>
+      <td>70</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>719</td>
+      <td>DiancieMega Diancie</td>
+      <td>Rock</td>
+      <td>Fairy</td>
+      <td>700</td>
+      <td>50</td>
+      <td>160</td>
+      <td>110</td>
+      <td>160</td>
+      <td>110</td>
+      <td>110</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>719</td>
+      <td>Diancie</td>
+      <td>Rock</td>
+      <td>Fairy</td>
+      <td>600</td>
+      <td>50</td>
+      <td>100</td>
+      <td>150</td>
+      <td>100</td>
+      <td>150</td>
+      <td>50</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="column">
+<h3>Column<a class="headerlink" href="#column" title="Link to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -755,7 +1460,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-import">Package Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-import">Dataset Import</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-create-a-dataframe">Manually Create a DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverse-row-column-order">Reverse Row/Column Order</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row">Row</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#column">Column</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
