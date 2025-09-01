@@ -206,7 +206,9 @@
    "id": "4bc1e5a5",
    "metadata": {},
    "source": [
-    "### `np.zeros(shape, dtype=float, order='C', *, like=None)`"
+    "### np.zeros\n",
+    "\n",
+    "`np.zeros(shape, dtype=float, order='C', *, like=None)`"
    ]
   },
   {
@@ -246,7 +248,9 @@
     ]
    },
    "source": [
-    "### `np.ones(shape, dtype=None, order='C', *, like=None)`"
+    "### np.ones\n",
+    "\n",
+    "`np.ones(shape, dtype=None, order='C', *, like=None)`"
    ]
   },
   {
@@ -286,7 +290,9 @@
     ]
    },
    "source": [
-    "### `np.full(shape, fill_value, dtype=None, order='C', *, like=None)`"
+    "### np.full\n",
+    "\n",
+    "`np.full(shape, fill_value, dtype=None, order='C', *, like=None)`"
    ]
   },
   {
@@ -326,7 +332,9 @@
     ]
    },
    "source": [
-    "### [`np.arange([start, ]stop, [step, ]dtype=None, *, like=None)`]"
+    "### np.arange\n",
+    "\n",
+    "`np.arange([start, ]stop, [step, ]dtype=None, *, like=None)`"
    ]
   },
   {
@@ -365,7 +373,9 @@
     ]
    },
    "source": [
-    "### `np.eye(N, M=None, k=0, dtype=<class 'float'>, order='C', *, like=None)`"
+    "### np.eye\n",
+    "\n",
+    "`np.eye(N, M=None, k=0, dtype=<class 'float'>, order='C', *, like=None)`"
    ]
   },
   {
@@ -406,7 +416,9 @@
     ]
    },
    "source": [
-    "### `np.random.random(size=None)`"
+    "### np.random.random\n",
+    "\n",
+    "`np.random.random(size=None)`"
    ]
   },
   {
@@ -459,7 +471,7 @@
     ]
    },
    "source": [
-    "## Important Numpy functions"
+    "## Important NumPy functions"
    ]
   },
   {
@@ -472,7 +484,9 @@
     ]
    },
    "source": [
-    "### `np.clip(a, a_min, a_max, out=None, **kwargs)`"
+    "### np.clip\n",
+    "\n",
+    "`np.clip(a, a_min, a_max, out=None, **kwargs)`"
    ]
   },
   {
@@ -525,7 +539,9 @@
     ]
    },
    "source": [
-    "### `np.concatenate((a1, a2, ...), axis=0, out=None, dtype=None, casting=\"same_kind\")`"
+    "### np.concatenate\n",
+    "\n",
+    "`np.concatenate((a1, a2, ...), axis=0, out=None, dtype=None, casting=\"same_kind\")`"
    ]
   },
   {
@@ -613,7 +629,9 @@
     ]
    },
    "source": [
-    "### `np.vectorize(pyfunc, otypes=None, doc=None, excluded=None, cache=False, signature=None)`"
+    "### np.vectorize\n",
+    "\n",
+    "`np.vectorize(pyfunc, otypes=None, doc=None, excluded=None, cache=False, signature=None)`"
    ]
   },
   {
@@ -670,7 +688,9 @@
     ]
    },
    "source": [
-    "### `np.where(condition, x=None, y=None, *, out=None)`"
+    "### np.where\n",
+    "\n",
+    "`np.where(condition, x=None, y=None, *, out=None)`"
    ]
   },
   {
@@ -710,7 +730,9 @@
     ]
    },
    "source": [
-    "### `<array>.flatten(order='C')`"
+    "### flatten\n",
+    "\n",
+    "`<array>.flatten(order='C')`"
    ]
   },
   {

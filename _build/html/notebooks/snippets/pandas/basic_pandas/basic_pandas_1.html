@@ -29,15 +29,15 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/landing_page.css?v=2ed7ac62" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/date.css?v=7762d749" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/footer.css?v=7252cef9" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/font.css?v=0214559b" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/font.css?v=fec259cc" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/page_width.css?v=56ac70b4" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -50,6 +50,7 @@
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/snippets/pandas/basic_pandas/basic_pandas_1';</script>
     <link rel="icon" href="../../../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -316,7 +317,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/cornel05/cornel.ai" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -538,7 +539,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/cornel05/AI-Learning-Labs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/cornel05/cornel.ai" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -583,7 +584,10 @@ document.write(`
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../numpy/index.html">Numpy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../numpy/numpy_check_dtype.html">NumPy Check Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numpy/numpy_dtype.html">Numpy Dtype Construction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../numpy/numpy_nd_array.html">NumPy ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numpy/numpy_structured_array.html">NumPy Structured Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../numpy/python_numpy_1d_2d_3d_list.html">Python &amp; NumPy 1D, 2D, 3D Lists</a></li>
 </ul>
 </details></li>
@@ -2019,7 +2023,7 @@ Name: 3, dtype: object
 </div>
 </div>
 <section id="explicit-filtering">
-<h3><code class="docutils literal notranslate"><span class="pre">Explicit</span> <span class="pre">filtering</span></code><a class="headerlink" href="#explicit-filtering" title="Link to this heading">#</a></h3>
+<h3>Explicit filtering<a class="headerlink" href="#explicit-filtering" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output tag_scroll-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Mega&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -6930,7 +6934,7 @@ Name: Total, dtype: float64
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data">Filtering data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-filtering">Regex Filtering</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-filtering"><code class="docutils literal notranslate"><span class="pre">Explicit</span> <span class="pre">filtering</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-filtering">Explicit filtering</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-filtering-case-sensitive-by-default">Regex filtering, case sensitive by default</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-filtering-case-insensitive">Regex filtering, case insensitive</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-regex">Using regex</a></li>

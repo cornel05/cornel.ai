@@ -6,6 +6,9 @@ extensions = [
     "sphinx_copybutton",  # copy code buttons
     "sphinx.ext.mathjax", # math rendering
     "sphinx_design",   # design blocks
+    "nbsphinx",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.autodoc",
 ]
 nb_execution_mode = "off"        # don't execute notebooks on CI; just render
 # nb_render_text_lexer = "python"  # fallback for text cells
@@ -23,8 +26,8 @@ html_css_files = [
     "css/date.css",
     "css/footer.css",
     "css/font.css",
-    "https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap",
-    "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap",
+    "css/page_width.css",
+    "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap",
 ]
 html_context = {
     "default_mode": "light",
@@ -48,7 +51,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/cornel05/AI-Learning-Labs",
+            "url": "https://github.com/cornel05/cornel.ai",
             "icon": "fa-brands fa-github"
         },
         {

@@ -1,0 +1,8 @@
+body > div.bd-container > div {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}

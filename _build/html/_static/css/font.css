@@ -1,50 +1,12 @@
-html {
-  font-size: 16.6px !important;
-}
-span, a {
-  font-size: 17.6px !important;
-}
-h1 {
-  font-weight: 800 !important;
-}
-h2 {
-  font-weight: 750 !important;
-}
-h3 {
-  font-weight: 700 !important;
-}
-h4 {
-  font-weight: 650 !important;
-}
-h5 {
-  font-weight: 600 !important;
-}
-h6 {
-  font-weight: 550 !important;
-}
-@media (max-width: 600px) {
-  h1 {
-    font-weight: 700 !important;
-  }
-  h2 {
-    font-weight: 650 !important;
-  }
-  h3 {
-    font-weight: 600 !important;
-  }
-  h4 {
-    font-weight: 550 !important;
-  }
-  h5 {
-    font-weight: 500 !important;
-  }
-  h6 {
-    font-weight: 450 !important;
-  }
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 
-:root {
-  --pst-font-family-base: "JetBrains Mono", monospace;
-  --pst-font-family-heading: "JetBrains Mono", monospace;
-  --pst-font-family-monospace: "Fira Code", monospace;
+html {
+  scroll-behavior: smooth !important;
+  font-size: large !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600 !important;
 }
