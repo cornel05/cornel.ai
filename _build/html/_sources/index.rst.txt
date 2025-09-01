@@ -9,7 +9,7 @@ cornel.ai
 
 **Download repo:** `Zipped Repo <https://github.com/cornel05/AI-Learning-Labs/archive/refs/heads/main.zip>`_
 
-Welcome 👋 — hands-on notebooks for **Classification**, **Regression**, **Optimization**, **Computer Vision**, **Pandas**, and **Python Snippets**.
+Welcome 👋 — hands-on notebooks for **Classification**, **Regression**, **Optimization**, **Computer Vision**, and **Coding Snippets**.
 
 :mod:`cornel.ai` is a collection of practical Jupyter notebooks demonstrating key concepts and workflows in machine learning, optimization, and data analysis. Each section provides end-to-end examples, from data preparation to model evaluation and deployment.
 
@@ -82,37 +82,21 @@ Welcome 👋 — hands-on notebooks for **Classification**, **Regression**, **Op
 
             To the computer vision notebooks
 
-    .. grid-item-card:: :fa:`table;sd-text-primary` Pandas
+    .. grid-item-card:: :fa:`code;sd-text-primary` Snippets
         :class-card: intro-card
         :shadow: md
 
-        Productive data wrangling: indexing, reshaping, joins, time series, tidy analysis flows.
+        Practical Python, NumPy, and Pandas patterns: data wrangling, iteration, visualization, and reusable utilities.
 
         +++
 
-        .. button-ref:: notebooks/pandas/index
+        .. button-ref:: notebooks/snippets/index
             :ref-type: doc
             :click-parent:
             :color: secondary
             :expand:
 
-            To the pandas notebooks
-
-    .. grid-item-card:: :fab:`python;sd-text-primary` Python Snippets
-        :class-card: intro-card
-        :shadow: md
-
-        Practical patterns: IO, configuration, iteration, visualization, reusable utilities.
-
-        +++
-
-        .. button-ref:: notebooks/python_snippets/index
-            :ref-type: doc
-            :click-parent:
-            :color: secondary
-            :expand:
-
-            To the Python snippets
+            To the coding snippets
 
 Contents
 ========
@@ -124,8 +108,7 @@ Contents
    notebooks/regression/index.rst
    notebooks/optimization/index.rst
    notebooks/computer_vision/index.rst
-   notebooks/pandas/index.rst
-   notebooks/python_snippets/index.rst
+   notebooks/snippets/index.rst
 
 My Github Profile
 =================

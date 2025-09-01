@@ -1,7 +1,7 @@
 # AI Learning Labs
 
 [![Read the Book](https://img.shields.io/badge/Read%20the%20Book-live-brightgreen.svg)](https://cornel05.github.io/cornel.ai/)
-[![Build](https://github.com/cornel05/AI-Learning-Labs/actions/workflows/jupyter-book.yml/badge.svg)](https://github.com/cornel05/cornel.ai/actions)
+[![Build](https://github.com/cornel05/cornel.ai/actions/workflows/pages.yml/badge.svg)](https://github.com/cornel05/cornel.ai/actions)
 
 Explore the notebooks with a clean, nbviewer-like UI:
 
@@ -10,7 +10,7 @@ Explore the notebooks with a clean, nbviewer-like UI:
 - 🧮 **Optimization** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/optimization/index.html)
 - 👁️ **Computer Vision** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/computer_vision/index.html)
 - 🐼 **Pandas** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/pandas/index.html)
-- 🐍 **Python Snippets** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/python_snippets/index.html)
+- 🐍 **Python Snippets** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/snippets/index.html)
 
 > The site rebuilds automatically on every push to `main`.
 
@@ -43,7 +43,7 @@ notebooks/
   optimization/
   computer_vision/
   pandas/
-  python_snippets/
+  snippets/
 _build/
   html/
     index.html
