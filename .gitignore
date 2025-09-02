@@ -211,3 +211,7 @@ scripts/ignore/
 
 # VSCode config
 .vscode/
+
+# Sphinx builds
+_build/
+_site/
