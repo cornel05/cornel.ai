@@ -214,4 +214,3 @@ scripts/ignore/
 
 # Sphinx builds
 _build/
-_site/
