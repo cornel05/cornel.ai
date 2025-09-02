@@ -3,7 +3,7 @@
 [![Read the Book](https://img.shields.io/badge/Read%20the%20Book-live-brightgreen.svg)](https://cornel05.github.io/cornel.ai/)
 [![Build](https://github.com/cornel05/cornel.ai/actions/workflows/pages.yml/badge.svg)](https://github.com/cornel05/cornel.ai/actions)
 
-Explore the notebooks with a clean, nbviewer-like UI:
+Explore the notebooks with a clean UI:
 
 - 📘 **Classification** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/classification/index.html)
 - 📈 **Regression** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/regression/index.html)
@@ -12,7 +12,7 @@ Explore the notebooks with a clean, nbviewer-like UI:
 - 🐼 **Pandas** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/pandas/index.html)
 - 🧑‍💻 **Coding Snippets** → [open chapter](https://cornel05.github.io/cornel.ai/notebooks/snippets/index.html)
 
-> The site rebuilds automatically on every push to `main`.
+> The site rebuilds manually by `workflow-dispatch` trigger in Github Actions.
 
 ## Local Development
 
