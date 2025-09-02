@@ -26,7 +26,7 @@ def process_all_notebooks(root_dir, tags_to_add):
 
 def main():
     root_dir = "/home/dcornel/code/AI Learning Labs/notebooks"
-    tags_to_add = ["hide_output", "scroll-output"]
+    tags_to_add = ["hide-output", "scroll-output"]
 
     if len(sys.argv) != 2:
         print("Usage: python add_metadata_tags.py [all|notebook_name.ipynb]")

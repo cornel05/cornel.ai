@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../../" data-theme="light">
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Pandas Basics Exploration &#8212; AI Learning Labs</title>
+    <title>pandas: Pandas Basics Exploration &#8212; AI Learning Labs</title>
   
   
   
@@ -18,45 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/landing_page.css?v=2ed7ac62" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/date.css?v=7762d749" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/footer.css?v=7252cef9" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/font.css?v=4865eef6" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/page_width.css?v=56ac70b4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/landing_page.css?v=2ed7ac62" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/date.css?v=7762d749" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/footer.css?v=7252cef9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/font.css?v=4865eef6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/page_width.css?v=56ac70b4" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/snippets/pandas/basic_pandas/basic_pandas_1';</script>
-    <link rel="icon" href="../../../../_static/logo.png"/>
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Basic Pandas for Data Science" href="basic_pandas_2.html" />
-    <link rel="prev" title="Pandas" href="../index.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/snippets/pandas/basic_pandas_1';</script>
+    <link rel="icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="pandas: Basic Pandas for Data Science" href="basic_pandas_2.html" />
+    <link rel="prev" title="Pandas" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -88,7 +88,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../../../../search.html"
+      action="../../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -125,7 +125,7 @@
     
   
 
-<a class="navbar-brand logo" href="../../../../index.html">
+<a class="navbar-brand logo" href="../../../index.html">
   
   
   
@@ -134,8 +134,8 @@
     
     
     
-    <img src="../../../../_static/logo.png" class="logo__image only-light" alt=""/>
-    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
     <p class="title logo__title">cornel.ai</p>
@@ -153,35 +153,35 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../classification/index.html">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
     Classification
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../regression/index.html">
+  <a class="nav-link nav-internal" href="../../regression/index.html">
     Regression
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../optimization/index.html">
+  <a class="nav-link nav-internal" href="../../optimization/index.html">
     Optimization
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../computer_vision/index.html">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
     Computer Vision
   </a>
 </li>
 
 
 <li class="nav-item current active">
-  <a class="nav-link nav-internal" href="../../index.html">
+  <a class="nav-link nav-internal" href="../index.html">
     Snippets
   </a>
 </li>
@@ -396,35 +396,35 @@ document.write(`
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../classification/index.html">
+  <a class="nav-link nav-internal" href="../../classification/index.html">
     Classification
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../regression/index.html">
+  <a class="nav-link nav-internal" href="../../regression/index.html">
     Regression
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../optimization/index.html">
+  <a class="nav-link nav-internal" href="../../optimization/index.html">
     Optimization
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../computer_vision/index.html">
+  <a class="nav-link nav-internal" href="../../computer_vision/index.html">
     Computer Vision
   </a>
 </li>
 
 
 <li class="nav-item current active">
-  <a class="nav-link nav-internal" href="../../index.html">
+  <a class="nav-link nav-internal" href="../index.html">
     Snippets
   </a>
 </li>
@@ -579,21 +579,23 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Snippet Categories</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../python/python_1d_2d_list.html">Python 1D, 2D Lists</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/python_1d_2d_list.html">Python 1D, 2D Lists</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../numpy/index.html">Numpy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../numpy/numpy_check_dtype.html">NumPy Check Data Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../numpy/numpy_dtype.html">Numpy Dtype Construction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../numpy/numpy_nd_array.html">NumPy ND Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../numpy/numpy_structured_array.html">NumPy Structured Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../numpy/python_numpy_1d_2d_3d_list.html">Python &amp; NumPy 1D, 2D, 3D Lists</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">Numpy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/numpy_check_dtype.html">NumPy: numpy.dtype Check Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/numpy_dtype.html">Numpy: Dtype Construction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/numpy_nd_array.html">NumPy: n-dimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/numpy_structured_array.html">NumPy: Structured arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/python_numpy_1d_2d_3d_list.html">Python &amp; NumPy 1D, 2D, 3D Lists</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Pandas</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Pandas Basics Exploration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic_pandas_2.html">Basic Pandas for Data Science</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Pandas</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">pandas: Pandas Basics Exploration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_pandas_2.html">pandas: Basic Pandas for Data Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandas_nullable_dtypes.html">pandas: nullable data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandas_to_numeric.html">pndas: to_numeric() for Safe Conversion of Strings to Numbers in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -629,17 +631,17 @@ document.write(`
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
-      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Snippets</a></li>
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Snippets</a></li>
     
     
-    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Pandas</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Pandas</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Pandas...</li>
+    <li class="breadcrumb-item active" aria-current="page">pandas:...</li>
   </ul>
 </nav>
 </div>
@@ -656,8 +658,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="pandas-basics-exploration">
-<h1>Pandas Basics Exploration<a class="headerlink" href="#pandas-basics-exploration" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-pandas-basics-exploration">
+<h1>pandas: Pandas Basics Exploration<a class="headerlink" href="#pandas-pandas-basics-exploration" title="Link to this heading">#</a></h1>
 <section id="loading-data-into-pandas-dataframe">
 <h2>Loading data into Pandas DataFrame<a class="headerlink" href="#loading-data-into-pandas-dataframe" title="Link to this heading">#</a></h2>
 <p>The dataset is from <a class="reference external" href="https://www.kaggle.com/datasets/abcsds/pokemon">Kaggle - Pokemon</a>.</p>
@@ -2856,14 +2858,14 @@ Name: 3, dtype: object
 <section id="regular-expressions-cheat-sheet">
 <h3>Regular Expressions Cheat Sheet<a class="headerlink" href="#regular-expressions-cheat-sheet" title="Link to this heading">#</a></h3>
 <figure class="align-default" id="regex-cheat-sheet-0">
-<a class="reference internal image-reference" href="../../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png"><img alt="../../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png" src="../../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png"><img alt="../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png" src="../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png" style="width: 600px;" />
 </a>
 <figcaption>
 <p><span class="caption-text">Regular Expressions Cheat Sheet</span><a class="headerlink" href="#regex-cheat-sheet-0" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="regex-cheat-sheet-1">
-<a class="reference internal image-reference" href="../../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png"><img alt="../../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png" src="../../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png"><img alt="../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png" src="../../../_images/Regular_Expressions_Cheat_Sheet_images_0.png" style="width: 600px;" />
 </a>
 <figcaption>
 <p><span class="caption-text">Regular Expressions Cheat Sheet</span><a class="headerlink" href="#regex-cheat-sheet-1" title="Link to this image">#</a></p>
@@ -6884,7 +6886,7 @@ Name: Total, dtype: float64
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -6897,7 +6899,7 @@ Name: Total, dtype: float64
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Pandas for Data Science</p>
+        <p class="prev-next-title">pandas: Basic Pandas for Data Science</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -6999,7 +7001,7 @@ Name: Total, dtype: float64
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../../../../_sources/notebooks/snippets/pandas/basic_pandas/basic_pandas_1.ipynb.txt">
+    <a href="../../../_sources/notebooks/snippets/pandas/basic_pandas_1.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
@@ -7018,8 +7020,8 @@ Name: Total, dtype: float64
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">

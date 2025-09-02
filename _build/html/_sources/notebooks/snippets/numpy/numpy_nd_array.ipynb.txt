@@ -10,7 +10,7 @@
     ]
    },
    "source": [
-    "# NumPy ND Arrays\n",
+    "# NumPy: n-dimensional arrays\n",
     "- Sum of elements and store in sum_of_matrix variable\n",
     "- Find max/min element in matrix and store in max_value/min_value variable\n"
    ]

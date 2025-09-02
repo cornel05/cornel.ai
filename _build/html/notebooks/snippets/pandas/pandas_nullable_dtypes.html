@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>NumPy: numpy.dtype Check Data Types &#8212; AI Learning Labs</title>
+    <title>pandas: nullable data types &#8212; AI Learning Labs</title>
   
   
   
@@ -51,12 +51,12 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/snippets/numpy/numpy_check_dtype';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/snippets/pandas/pandas_nullable_dtypes';</script>
     <link rel="icon" href="../../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Numpy: Dtype Construction" href="numpy_dtype.html" />
-    <link rel="prev" title="Numpy" href="index.html" />
+    <link rel="next" title="pndas: to_numeric() for Safe Conversion of Strings to Numbers in Pandas" href="pandas_to_numeric.html" />
+    <link rel="prev" title="pandas: Basic Pandas for Data Science" href="basic_pandas_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -583,19 +583,19 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../python/python_1d_2d_list.html">Python 1D, 2D Lists</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Numpy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">NumPy: numpy.dtype Check Data Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="numpy_dtype.html">Numpy: Dtype Construction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="numpy_nd_array.html">NumPy: n-dimensional arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="numpy_structured_array.html">NumPy: Structured arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_numpy_1d_2d_3d_list.html">Python &amp; NumPy 1D, 2D, 3D Lists</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">Numpy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/numpy_check_dtype.html">NumPy: numpy.dtype Check Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/numpy_dtype.html">Numpy: Dtype Construction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/numpy_nd_array.html">NumPy: n-dimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/numpy_structured_array.html">NumPy: Structured arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/python_numpy_1d_2d_3d_list.html">Python &amp; NumPy 1D, 2D, 3D Lists</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">Pandas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/basic_pandas_1.html">pandas: Pandas Basics Exploration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/basic_pandas_2.html">pandas: Basic Pandas for Data Science</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/pandas_nullable_dtypes.html">pandas: nullable data types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/pandas_to_numeric.html">pndas: to_numeric() for Safe Conversion of Strings to Numbers in Pandas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Pandas</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basic_pandas_1.html">pandas: Pandas Basics Exploration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_pandas_2.html">pandas: Basic Pandas for Data Science</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">pandas: nullable data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandas_to_numeric.html">pndas: to_numeric() for Safe Conversion of Strings to Numbers in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -639,9 +639,9 @@ document.write(`
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Snippets</a></li>
     
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Numpy</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Pandas</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">NumPy:...</li>
+    <li class="breadcrumb-item active" aria-current="page">pandas:...</li>
   </ul>
 </nav>
 </div>
@@ -658,32 +658,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="numpy-numpy-dtype-check-data-types">
-<h1>NumPy: numpy.dtype Check Data Types<a class="headerlink" href="#numpy-numpy-dtype-check-data-types" title="Link to this heading">#</a></h1>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-nullable-data-types">
+<h1>pandas: nullable data types<a class="headerlink" href="#pandas-nullable-data-types" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Old NumPy dtypes like <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code> do not allow missing values. If you insert <code class="docutils literal notranslate"><span class="pre">NaN</span></code> into an integer column, pandas silently upcasts it to float.</p></li>
+<li><p>Pandas introduced nullable dtypes (<code class="docutils literal notranslate"><span class="pre">Int8</span></code>, <code class="docutils literal notranslate"><span class="pre">Int16</span></code>, <code class="docutils literal notranslate"><span class="pre">Int32</span></code>, <code class="docutils literal notranslate"><span class="pre">Int64</span></code>, <code class="docutils literal notranslate"><span class="pre">Float32</span></code>, <code class="docutils literal notranslate"><span class="pre">Float64</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>) that can hold both regular values and <code class="docutils literal notranslate"><span class="pre">pd.NA</span></code>.</p></li>
+</ul>
+<p><strong>Examples</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
-<span class="go">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="go">[ 1. nan  3.]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;arr.dtype:&quot;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="go">float64</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">0      1</span>
+<span class="go">1   &lt;NA&gt;</span>
+<span class="go">2      3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s.dtype:&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="go">dtype: Int64</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">float</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;d&#39;</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span>
-<span class="go">False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;Int64&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="s1">&#39;Float64&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">       A    B     C      D</span>
+<span class="go">0      1  4.0     a   True</span>
+<span class="go">1      2  &lt;NA&gt;    b  False</span>
+<span class="go">2   &lt;NA&gt;  6.0  &lt;NA&gt;    &lt;NA&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="go">A      Int64</span>
+<span class="go">B    Float64</span>
+<span class="go">C     string</span>
+<span class="go">D    boolean</span>
+<span class="go">dtype: object</span>
 </pre></div>
 </div>
 </section>
@@ -699,20 +716,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="basic_pandas_2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Numpy</p>
+        <p class="prev-next-title">pandas: Basic Pandas for Data Science</p>
       </div>
     </a>
     <a class="right-next"
-       href="numpy_dtype.html"
+       href="pandas_to_numeric.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Numpy: Dtype Construction</p>
+        <p class="prev-next-title">pndas: to_numeric() for Safe Conversion of Strings to Numbers in Pandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -729,7 +746,7 @@ document.write(`
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../../../_sources/notebooks/snippets/numpy/numpy_check_dtype.ipynb.txt">
+    <a href="../../../_sources/notebooks/snippets/pandas/pandas_nullable_dtypes.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

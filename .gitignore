@@ -208,3 +208,6 @@ __marimo__/
 
 # Custom scripts and converted notebooks from py files
 scripts/ignore/
+
+# VSCode config
+.vscode/
